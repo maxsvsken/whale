@@ -708,11 +708,11 @@ body {
 
     .hero-btn {
         display: block !important;
-        margin: 0 auto !important;
+        margin: 15px auto 0 auto !important;
         width: fit-content !important;
         visibility: visible !important;
-        opacity: 0 !important;
-        animation: heroBtnAppear 1.2s ease-out 1s forwards !important;
+        opacity: 0;
+        animation: heroBtnAppear 1.2s ease-out 0.8s forwards;
     }
 
     @keyframes heroBtnAppear {
@@ -746,9 +746,9 @@ body {
     /* Форсируем видимость на мобильных, если GSAP задержится */
     .hero-image-wrapper,
     .title-word,
-    .char {
+    .char,
+    .hero-btn {
         visibility: visible;
-        opacity: 1;
     }
 
     .section-title {
