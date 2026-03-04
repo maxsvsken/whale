@@ -36,7 +36,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    overscroll-behavior-y: none;
 }
 
 /* Typography Utilities */
@@ -722,6 +721,8 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
         /* Ultra Liquid Glass */
         background: rgba(255, 255, 255, 0.5) !important;
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3)) !important;
@@ -762,7 +763,7 @@ body {
 
     .nav-links li a {
         font-size: 1.1rem;
-        color: var(--color-accent);
+        color: var(--color-grey-dark);
         letter-spacing: 2px;
         font-weight: 700;
     }
