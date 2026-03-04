@@ -23,7 +23,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     overflow-x: hidden;
 }
 
@@ -98,65 +98,24 @@ body {
 .hero {
     position: relative;
     overflow: hidden;
-    background-color: #f8f8f8;
-    background-image: repeating-conic-gradient(from 0deg at 50% 50%,
-            #FF0000 0deg 15deg,
-            transparent 15deg 30deg);
+    background-color: var(--color-white);
     min-height: 100vh;
     display: flex;
     align-items: center;
 }
 
-.hero-bg-reveal {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    left: -50vw;
-    width: 105vw;
-    background: rgba(255, 255, 255, 0.6);
-    /* Less transparent glass for better readability */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    z-index: 1;
-    transform: translateX(60%);
-    /* Start under the image area */
-    animation: slideInPlate 1.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-    animation-delay: 0s;
-    /* Simultaneous start with AOS elements */
-    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.03);
-}
 
-@keyframes slideInPlate {
-    from {
-        transform: translateX(60%);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
 
 .hero-layout {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 60px;
+    display: flex;
+    justify-content: center;
     align-items: center;
     position: relative;
     width: 100%;
-    /* Parent for absolute backdrop */
 }
 
 .hero-content {
     position: relative;
-    z-index: 3;
-    /* Above backdrop (z-index 1) */
-}
-
-.hero-art-container {
-    position: relative;
-    z-index: 4;
-    /* Above backdrop (z-index 1) */
 }
 
 /* 01 Legend Section - Dynamic Diagonal Lines */
@@ -227,9 +186,8 @@ body {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--color-border);
+    background: transparent;
+    border-bottom: none;
     padding: 20px 0;
 }
 
@@ -307,6 +265,9 @@ body {
 /* Sections General */
 .strict-section {
     padding: 140px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .section-label {
@@ -373,6 +334,39 @@ body {
     color: var(--color-grey-dark);
     margin-bottom: 40px;
     font-weight: 300;
+}
+
+/* Hero Legend Animation States */
+.hero-image-wrapper,
+.title-word,
+.char,
+.hero-btn {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.title-word {
+    display: inline-block;
+    transform-origin: 0% 50% -50px;
+}
+
+.char {
+    display: inline-block;
+}
+
+/* FAQ Triangle Colors */
+.faq-item summary {
+    display: list-item;
+    /* Обеспечиваем отображение стандартного маркера */
+    list-style-position: inside;
+}
+
+.faq-item summary::-webkit-details-marker {
+    color: var(--color-accent) !important;
+}
+
+.faq-item summary::marker {
+    color: var(--color-accent) !important;
 }
 
 /* Legend Layout */
@@ -467,6 +461,21 @@ body {
 .code-list {
     display: flex;
     flex-direction: column;
+    padding-right: 20px;
+}
+
+/* Custom scrollbar for code list */
+.code-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.code-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.code-list::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 2px;
 }
 
 .code-item {
@@ -625,5 +634,76 @@ body {
 
     .footer-info {
         text-align: left;
+    }
+}
+
+/* Dot Navigation */
+.dot-nav {
+    position: fixed !important;
+    top: 50% !important;
+    right: 20px !important;
+    transform: translateY(-50%) !important;
+    z-index: 999999 !important;
+    pointer-events: auto !important;
+    display: block !important;
+}
+
+.dot-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dot-nav a {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(128, 128, 128, 0.6);
+    background-color: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    /* subtle shadow to ensure visibility on light and dark alike */
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), inset 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.dot-nav a::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+}
+
+.dot-nav a:hover {
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dot-nav a.active {
+    background-color: #FBB03B;
+    /* Yellow */
+    border-color: #FBB03B;
+    box-shadow: none;
+}
+
+.dot-nav a.active::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(251, 176, 59, 1);
+}
+
+@media (max-width: 900px) {
+    .dot-nav {
+        /* Keep visible but maybe adjust position if needed */
+        right: 10px !important;
     }
 }

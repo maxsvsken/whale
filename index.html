@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A1 — Инвестиционная компания специального назначения</title>
+    <title>А1 — ведущий эксперт по инвестициям в специальные ситуации</title>
 
     <!-- Fonts: Strictly Manrope for text, Oswald for headings -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,16 +21,30 @@
 </head>
 
 <body>
+    <!-- Side Dot Navigation - High priority -->
+    <nav class="dot-nav" style="display: block !important; visibility: visible !important; opacity: 1 !important;">
+        <ul>
+            <li><a href="#hero" class="dot-btn active" title="В начало"></a></li>
+            <li><a href="#about" class="dot-btn" title="Кто мы"></a></li>
+            <li><a href="#director" class="dot-btn" title="Руководство"></a></li>
+            <li><a href="#code" class="dot-btn" title="Кодекс"></a></li>
+            <li><a href="#myths" class="dot-btn" title="Мифы и Факты"></a></li>
+            <li><a href="#today" class="dot-btn" title="Экспертиза"></a></li>
+            <li><a href="#contact" class="dot-btn" title="Контакты"></a></li>
+        </ul>
+    </nav>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">A1</a>
             <ul class="nav-links">
-                <li><a href="#about" class="nav-btn">Миссия</a></li>
-                <li><a href="#today" class="nav-btn">Ценности</a></li>
+                <li><a href="#about" class="nav-btn">Кто мы</a></li>
+                <li><a href="#director" class="nav-btn">Руководство</a></li>
                 <li><a href="#code" class="nav-btn">Кодекс</a></li>
-                <li><a href="#contact" class="nav-btn">Контакты</a></li>
+                <li><a href="#myths" class="nav-btn">Мифы и Факты</a></li>
+                <li><a href="#today" class="nav-btn">Экспертиза</a></li>
+                <li><a href="#contact" class="nav-btn">Свяжитесь с нами</a></li>
             </ul>
             <div class="burger" id="burger">
                 <span></span>
@@ -41,29 +55,40 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero strict-section">
-        <div class="container hero-layout">
-            <div class="hero-bg-reveal"></div>
-            <div class="hero-content">
-                <div class="hero-label tracking-wide" data-aos="fade-down" data-aos-duration="600">ОФИЦИАЛЬНОЕ
-                    ПОЗИЦИОНИРОВАНИЕ</div>
-                <h1 class="hero-title tracking-tight" data-aos="fade-up">
-                    <span class="d-block upper-part">ИНВЕСТИЦИОННАЯ</span>
-                    <span class="d-block lower-part">КОМПАНИЯ</span>
+    <section id="hero" class="hero strict-section">
+        <!-- Animated Background Canvas -->
+        <canvas id="hero-canvas"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+
+        <div class="container hero-layout"
+            style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+            <div class="hero-content" style="flex: 1; perspective: 1000px; text-align: left;">
+                <h1 class="hero-title"
+                    style="font-size: 5rem; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase;">
+                    <span class="title-word text-accent"
+                        style="font-family: 'Oswald', sans-serif; font-weight: 700 !important;">А1</span>
+                    <span class="title-word"
+                        style="font-family: 'Oswald', sans-serif; font-weight: 700 !important;">—</span>
+                    <span class="title-word"
+                        style="font-family: 'Oswald', sans-serif; font-weight: 700 !important;">ВЕДУЩИЙ</span><br>
+                    <span class="title-word"
+                        style="font-family: 'Oswald', sans-serif; font-weight: 700 !important;">ЭКСПЕРТ</span>
+                    <span class="title-word"
+                        style="font-family: 'Oswald', sans-serif; font-weight: 700 !important;">ПО</span>
+                    <span class="title-word"
+                        style="font-family: 'Oswald', sans-serif; font-weight: 700 !important;">ИНВЕСТИЦИЯМ</span>
                 </h1>
-                <p class="hero-desc" data-aos="fade-up">
-                    <span class="bg-accent text-white" style="padding: 2px 8px; display: inline-block;">специального
-                        назначения</span>
+                <p class="hero-subtitle text-accent"
+                    style="font-size: 1.5rem; margin-bottom: 40px; font-weight: 500; text-transform: uppercase;">
+                    В СПЕЦИАЛЬНЫЕ СИТУАЦИИ
                 </p>
-                <a href="#about" class="btn-primary nav-btn" data-aos="fade-up">Подробнее</a>
+                <a href="#about" class="hero-btn btn-primary nav-btn">Подробнее о нас</a>
             </div>
 
-            <div class="hero-art-container" data-aos="fade-left">
-                <!-- Roy Lichtenstein Accent Art -->
-                <div class="art-frame">
-                    <img src="images/business_man_pop_art_1771941761696.png"
-                        alt="Roy Lichtenstein Pop Art - Businessman">
-                </div>
+            <div class="hero-image-wrapper"
+                style="flex: 1; perspective: 1000px; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15);">
+                <img class="hero-image" src="images/business_man_pop_art_1771941761696.png" alt="Hero Image"
+                    style="width: 100%; height: auto; display: block; object-fit: cover;">
             </div>
         </div>
     </section>
@@ -79,14 +104,24 @@
             </div>
 
             <div class="legend-content">
-                <span class="section-label tracking-wide" data-aos="fade-up">01 / Легенда</span>
-                <h2 class="section-title tracking-tight" data-aos="fade-up" data-aos-delay="100">Команда А1 —
-                    архитекторы устойчивых сделок</h2>
-                <p class="section-desc" data-aos="fade-up" data-aos-delay="200">
-                    Как инвестор и партнер собственного капитала А1 заходит в такие ситуации и активы, где другие не
-                    справляются, доводя их до надежного результата. Строгий расчет, холодная голова и безупречное
-                    исполнение.
-                </p>
+                <span class="section-label tracking-wide" data-aos="fade-up">01 / Кто мы</span>
+                <h2 class="section-title tracking-tight" data-aos="fade-up" data-aos-delay="100"
+                    style="font-size: 2.8rem; margin-bottom: 25px; text-transform: uppercase;">А1 — ведущий эксперт по
+                    инвестициям в специальные ситуации</h2>
+
+                <div class="section-desc" data-aos="fade-up" data-aos-delay="200"
+                    style="color: #111; font-size: 1.1rem; line-height: 1.6; max-width: 100%;">
+                    <p style="margin-bottom: 15px;">Наша команда более 30 лет помогает реализовывать сложные сделки. А1
+                        участвует в таких ситуациях, где другие не справляются, доводит сделки до надёжного результата,
+                        смело и продуманно принимает на себя высокие финансовые, регуляторные и управленческие риски и
+                        помогает их митигировать.</p>
+                    <p style="margin-bottom: 30px;">Команда А1 сегодня — более 70 высококвалифицированных архитекторов
+                        устойчивых сделок. Единственный независимый собственник А1 — Александр Файн, который приобрел
+                        100% долей компании в марте 2022 г. и продолжил развивать А1 в качестве одного из лидеров на
+                        рынке специальных ситуаций.</p>
+
+
+                </div>
 
                 <div class="stats-strip" data-aos="fade-up" data-aos-delay="300">
                     <div class="stat-box">
@@ -106,37 +141,51 @@
         </div>
     </section>
 
-    <!-- Today Section -->
-    <section id="today" class="today-section strict-section">
-        <div class="container section-center">
-            <span class="section-label tracking-wide text-center d-block" data-aos="fade-up">02 / Ценности</span>
-            <h2 class="section-title tracking-tight text-center mb-5" data-aos="fade-up" data-aos-delay="100">ФУНДАМЕНТ
-                УСПЕХА</h2>
+    <!-- Director Section -->
+    <section id="director" class="director-section strict-section bg-white" style="padding: 80px 0;">
+        <div class="container"
+            style="display: flex; flex-direction: row; gap: 50px; align-items: center; flex-wrap: wrap;">
+            <div data-aos="fade-right"
+                style="flex: 1; min-width: 300px; max-width: 450px; position: relative; padding: 15px;">
+                <!-- Decorative Frame -->
+                <div
+                    style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 1px solid rgba(255,255,255,0.2); background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent); backdrop-filter: blur(5px); z-index: 0; border-radius: 4px;">
+                </div>
+                <div
+                    style="position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px; border: 1px solid #D4AF37; opacity: 0.5; z-index: -1; border-radius: 4px;">
+                </div>
 
-            <div class="cards-grid">
-                <div class="strict-card" data-aos="fade-up" data-aos-delay="100">
-                    <span class="card-num">01</span>
-                    <h3>Для кого мы работаем</h3>
-                    <p>Для партнеров, ищущих стабильность и профессионализм.</p>
-                </div>
-                <div class="strict-card" data-aos="fade-up" data-aos-delay="200">
-                    <span class="card-num">02</span>
-                    <h3>В каких ситуациях</h3>
-                    <p>Сложные, нестандартные активы и корпоративные споры.</p>
-                </div>
-                <div class="strict-card" data-aos="fade-up" data-aos-delay="300">
-                    <span class="card-num">03</span>
-                    <h3>Как мы работаем</h3>
-                    <p>Открыто, жестко, опираясь исключительно на закон.</p>
-                </div>
-                <div class="strict-card" data-aos="fade-up" data-aos-delay="400">
-                    <span class="card-num">04</span>
-                    <h3>Принципы</h3>
-                    <p>Ответственность за каждое принятое решение.</p>
-                </div>
+                <img src="images/IMG_6513.WEBP" alt="Александр Файн"
+                    style="width: 100%; height: auto; display: block; position: relative; z-index: 1; filter: grayscale(100%) sepia(20%) contrast(1.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3); border-radius: 2px;">
+            </div>
+            <div data-aos="fade-left" style="flex: 2; min-width: 300px;">
+                <span class="section-label tracking-wide text-accent"
+                    style="display: block; margin-bottom: 10px; font-weight: bold;">РУКОВОДСТВО</span>
+                <h2 class="section-title tracking-tight"
+                    style="font-size: 2.8rem; margin-bottom: 5px; text-transform: uppercase;">АЛЕКСАНДР ФАЙН</h2>
+                <p
+                    style="color: var(--color-accent); font-weight: bold; margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">
+                    Владелец и генеральный директор</p>
+
+                <p style="font-size: 1.1rem; color: #444; margin-bottom: 20px; line-height: 1.6;">Родился в 1936 году в
+                    Москве, детство провел на Колыме. В 1958 году с отличием окончил машиностроительный факультет
+                    Московского института химического машиностроения. До 1988 года работал главным конструктором по ряду
+                    образцов новой техники. В 1990–1992 годах был председателем научно-технического кооператива
+                    «Альфа-фото». С 1992 года — генеральный директор АО «Альфа-Эко», после 2004 года — А1. С 2022 года —
+                    владелец 100% долей А1 и генеральный директор.</p>
+
+                <p style="font-size: 1.1rem; color: #444; margin-bottom: 25px; line-height: 1.6;">Александр Файн также
+                    широко известен как прозаик и драматург. Является членом Международного сообщества писательских
+                    союзов, лауреатом Премии имени А. П. Чехова за 2009 год, номинантом престижной российской
+                    литературной премии «Большая книга» за 2012 год.</p>
+
+                <a href="#"
+                    style="display: inline-block; padding: 12px 25px; background: var(--color-black); color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; transition: background 0.3s ease;">Интервью
+                    Александра Файна РБК в 2026 году</a>
             </div>
         </div>
     </section>
+
 
     <!-- Code Section -->
     <section id="code" class="code-section strict-section bg-dark text-white">
@@ -146,8 +195,7 @@
                 <h2 class="section-title tracking-tight" data-aos="fade-up" data-aos-delay="100">10 ПУБЛИЧНЫХ ПРАВИЛ А1
                 </h2>
                 <div class="art-frame mt-4" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/handshake_pop_art_1771941881362.png"
-                        alt="Roy Lichtenstein Pop Art - Handshake">
+                    <img src="images/handshake_pop_art_1771941881362.png" alt="Roy Lichtenstein Pop Art - Handshake">
                 </div>
             </div>
 
@@ -156,97 +204,314 @@
                     <span class="code-num">01</span>
                     <div class="code-content">
                         <h4>Закон и прозрачность</h4>
-                        <p>Мы всегда действуем в правовом поле, и с документальным подтверждением.</p>
+                        <p>Любое решение — в правовом поле и с документарными подтверждениями.</p>
                     </div>
                 </div>
                 <div class="code-item" data-aos="fade-left" data-aos-delay="100">
                     <span class="code-num">02</span>
                     <div class="code-content">
                         <h4>Уважение к правам сторон</h4>
-                        <p>Мы ценим ясность в отношениях с партнерами и оппонентами.</p>
+                        <p>Не применяем и не поддерживаем практики захвата и давления.</p>
                     </div>
                 </div>
                 <div class="code-item" data-aos="fade-left" data-aos-delay="150">
                     <span class="code-num">03</span>
                     <div class="code-content">
                         <h4>Конфиденциальность</h4>
-                        <p>Защищаем информацию о наших действиях.</p>
+                        <p>Защищаем информацию сторон; публичные действия — только по согласованным правилам.</p>
                     </div>
                 </div>
                 <div class="code-item" data-aos="fade-left" data-aos-delay="200">
                     <span class="code-num">04</span>
                     <div class="code-content">
-                        <h4>Интерес против плохих практик</h4>
-                        <p>Избегаем недобросовестных приемов на рынке.</p>
+                        <h4>Интерес сделки превыше шумихи</h4>
+                        <p>Избегаем медийных игр; выбираем шаги, которые повышают вероятность закрытия.</p>
                     </div>
                 </div>
                 <div class="code-item" data-aos="fade-left" data-aos-delay="250">
                     <span class="code-num">05</span>
                     <div class="code-content">
-                        <h4>Честный статус владения</h4>
-                        <p>Понимаем бенефициаров и структуру собственности.</p>
+                        <h4>Сознательно идём на риск</h4>
+                        <p>Участвуем в сложных сделках и ситуациях, с которыми не справятся классические инвесторы.</p>
                     </div>
                 </div>
-                <!-- Some visual spacing for brevity, keeping all 10 rules -->
                 <div class="code-item" data-aos="fade-left" data-aos-delay="300">
                     <span class="code-num">06</span>
                     <div class="code-content">
-                        <h4>Ответственность</h4>
-                        <p>Действуем быстро, но взвешенно, отвечая за результат.</p>
+                        <h4>Ответственная скорость</h4>
+                        <p>Двигаемся быстро, но опираемся на факты, проверки и верифицируемые сроки.</p>
                     </div>
                 </div>
                 <div class="code-item" data-aos="fade-left" data-aos-delay="350">
                     <span class="code-num">07</span>
                     <div class="code-content">
-                        <h4>Инвестиции со смыслом</h4>
-                        <p>Ищем позитивные изменения в компании.</p>
+                        <h4>Инвестируем собственные средства</h4>
+                        <p>Входим капиталом и приобретаем активы, чтобы сохранить и приумножить их стоимость.</p>
                     </div>
                 </div>
                 <div class="code-item" data-aos="fade-left" data-aos-delay="400">
                     <span class="code-num">08</span>
                     <div class="code-content">
                         <h4>Переговоры прежде всего</h4>
-                        <p>Приоритет — переговорное решение и медиация.</p>
+                        <p>Приоритет — переговорные решения, медиация и судебные механизмы, а не эскалация конфликта.
+                        </p>
                     </div>
                 </div>
                 <div class="code-item" data-aos="fade-left" data-aos-delay="450">
                     <span class="code-num">09</span>
                     <div class="code-content">
                         <h4>Совпадение интересов</h4>
-                        <p>Выгода для всех участников сделки.</p>
+                        <p>Конструируем соглашения так, чтобы исполнение было выгодно всем участникам.</p>
                     </div>
                 </div>
                 <div class="code-item" data-aos="fade-left" data-aos-delay="500">
                     <span class="code-num">10</span>
                     <div class="code-content">
                         <h4>Публичная ответственность</h4>
-                        <p>Готовы объяснять наши принципы стейкхолдерам.</p>
+                        <p>Готовы объяснить наши принципы любому стейкхолдеру и выйти из процессов, что им противоречат.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact" class="site-footer bg-black">
-        <div class="container footer-layout">
-            <div class="footer-main">
-                <h2 class="footer-cta tracking-tight text-white mb-2" data-aos="fade-right">СВЯЖИТЕСЬ С НАМИ<span
-                        class="vibrate-mark">!</span></h2>
-                <a href="mailto:info@a1.ru" class="email-link" data-aos="fade-right" data-aos-delay="100">info@a1.ru</a>
-            </div>
-            <div class="footer-info text-grey" data-aos="fade-left">
-                <p>Москва, Ул. Трубная 2</p>
-                <p>+ 7 495 777 55 22</p>
+    <!-- Myths Section -->
+    <section id="myths" class="myths-section strict-section bg-light">
+        <div class="container section-center">
+            <span class="section-label tracking-wide text-center d-block" data-aos="fade-up">04 / О нас</span>
+            <h2 class="section-title tracking-tight text-center mb-5" data-aos="fade-up" data-aos-delay="100">МИФЫ И
+                ФАКТЫ ОБ А1</h2>
+
+            <div class="faq-container" data-aos="fade-up" data-aos-delay="200"
+                style="max-width: 900px; margin: 0 auto; text-align: left;">
+                <details class="faq-item"
+                    style="border-bottom: 1px solid var(--color-border); padding: 20px 0; cursor: pointer;">
+                    <summary
+                        style="font-weight: bold; font-family: var(--font-heading); font-size: 1.3rem; text-transform: uppercase; color: var(--color-black);">
+                        Миф: А1 — это рейдеры и конфликтные игроки</summary>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: var(--color-grey-dark); line-height: 1.6;">
+                        <strong>Факт:</strong> А1 — эксперты по инвестициям в специальные ситуации: преемственность,
+                        смена контроля, сложная структура владения, санкционные и комплаенс-риски. Конфликт — не цель и
+                        не инструмент, а один из возможных контекстов.
+                    </p>
+                </details>
+                <details class="faq-item"
+                    style="border-bottom: 1px solid var(--color-border); padding: 20px 0; cursor: pointer;">
+                    <summary
+                        style="font-weight: bold; font-family: var(--font-heading); font-size: 1.3rem; text-transform: uppercase; color: var(--color-black);">
+                        Миф: А1 «отжимает» бизнес</summary>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: var(--color-grey-dark); line-height: 1.6;">
+                        <strong>Факт:</strong> А1 не занимается захватами активов. Задача компании — сохранение и рост
+                        стоимости капитала законных владельцев и доведение ситуации до исполнимой, экономически
+                        обоснованной сделки.
+                    </p>
+                </details>
+                <details class="faq-item"
+                    style="border-bottom: 1px solid var(--color-border); padding: 20px 0; cursor: pointer;">
+                    <summary
+                        style="font-weight: bold; font-family: var(--font-heading); font-size: 1.3rem; text-transform: uppercase; color: var(--color-black);">
+                        Миф: А1 действует через силовиков и «серые» схемы</summary>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: var(--color-grey-dark); line-height: 1.6;">
+                        <strong>Факт:</strong> Все инструменты А1 находятся строго в правовом поле: переговоры,
+                        медиация, суд, договорённости с чёткой юридической фиксацией. Манипулятивные и неправовые
+                        практики исключены. Мы сотрудничаем с силовыми структурами, когда они являются стороной
+                        ситуации, над которой мы работаем.
+                    </p>
+                </details>
+                <details class="faq-item"
+                    style="border-bottom: 1px solid var(--color-border); padding: 20px 0; cursor: pointer;">
+                    <summary
+                        style="font-weight: bold; font-family: var(--font-heading); font-size: 1.3rem; text-transform: uppercase; color: var(--color-black);">
+                        Миф: А1 создаёт информационный шум, чтобы оказать давление</summary>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: var(--color-grey-dark); line-height: 1.6;">
+                        <strong>Факт:</strong> А1 не использует инфодавление. Демонстрация публичной позиции, как и
+                        любые действия в паблике допускаются только при необходимости и по заранее согласованным с
+                        партнёрами правилам. Приоритет — конфиденциальность и управляемость процесса.
+                    </p>
+                </details>
+                <details class="faq-item"
+                    style="border-bottom: 1px solid var(--color-border); padding: 20px 0; cursor: pointer;">
+                    <summary
+                        style="font-weight: bold; font-family: var(--font-heading); font-size: 1.3rem; text-transform: uppercase; color: var(--color-black);">
+                        Миф: С А1 легко потерять контроль над активом</summary>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: var(--color-grey-dark); line-height: 1.6;">
+                        <strong>Факт:</strong> Конструкция сделок выстраивается так, чтобы исполнение было выгодно всем
+                        сторонам, а контроль, роли и условия выхода фиксировались заранее. Цель — управляемость, а не
+                        перехват.
+                    </p>
+                </details>
+                <details class="faq-item"
+                    style="border-bottom: 1px solid var(--color-border); padding: 20px 0; cursor: pointer;">
+                    <summary
+                        style="font-weight: bold; font-family: var(--font-heading); font-size: 1.3rem; text-transform: uppercase; color: var(--color-black);">
+                        Миф: А1 работает медленно или слишком поспешно</summary>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: var(--color-grey-dark); line-height: 1.6;">
+                        <strong>Факт:</strong> А1 работает в режиме ответственной скорости: быстрая диагностика,
+                        дорожная карта, контрольные точки и обязательный фактчек. Беспрецедентная скорость для рынка не
+                        отменяет глубокий анализ ситуации.
+                    </p>
+                </details>
+                <details class="faq-item"
+                    style="border-bottom: 1px solid var(--color-border); padding: 20px 0; cursor: pointer;">
+                    <summary
+                        style="font-weight: bold; font-family: var(--font-heading); font-size: 1.3rem; text-transform: uppercase; color: var(--color-black);">
+                        Миф: А1 — это ручное управление без процедур</summary>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: var(--color-grey-dark); line-height: 1.6;">
+                        <strong>Факт:</strong> В компании действуют формализованные процессы, выстроено корпоративное
+                        управление. Каждый этап работы регламентирован: инвестиционный цикл, комплаенс, юридическая
+                        экспертиза, одобрения. Управление не зависит от персональных импровизаций.
+                    </p>
+                </details>
+                <details class="faq-item"
+                    style="border-bottom: 1px solid var(--color-border); padding: 20px 0; cursor: pointer;">
+                    <summary
+                        style="font-weight: bold; font-family: var(--font-heading); font-size: 1.3rem; text-transform: uppercase; color: var(--color-black);">
+                        Миф: А1 управляется внешними бенефициарами</summary>
+                    <p style="margin-top: 15px; font-size: 1.1rem; color: var(--color-grey-dark); line-height: 1.6;">
+                        <strong>Факт:</strong> А1 исторически была создана в структуре Альфа-Групп, но давно работает
+                        как самостоятельный игрок. У компании один собственник — Александр Маркович Файн. В компании
+                        работают узкопрофильные специалисты с глубокой экспертизой.
+                    </p>
+                </details>
             </div>
         </div>
-        <div class="container border-top mt-5 pt-4 text-center text-grey">
-            <p>&copy; 2026 A1 Investment Company. Все права защищены. <br>Иллюстрации в стиле Роя Лихтенштейна.</p>
+    </section>
+
+    <!-- Today Section (Expertise) -->
+    <section id="today" class="today-section strict-section">
+        <div class="container section-center">
+            <span class="section-label tracking-wide text-center d-block" data-aos="fade-up">05 / Экспертиза</span>
+            <h2 class="section-title tracking-tight text-center mb-5" data-aos="fade-up" data-aos-delay="100">В КАКИХ
+                СИТУАЦИЯХ ОБРАЩАТЬСЯ К А1</h2>
+
+            <div class="cards-grid">
+                <div class="strict-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="card-num"
+                        style="font-size: 1.5rem; margin-bottom: 15px; display: block; color: var(--color-accent); font-weight: bold; font-family: var(--font-heading); text-transform: uppercase;">Ситуации</span>
+                    <ul
+                        style="padding-left: 20px; color: var(--color-grey-dark); font-size: 1.1rem; line-height: 1.7; display: flex; flex-direction: column; gap: 10px;">
+                        <li>Конфликт акционеров, выход партнёра.</li>
+                        <li>Смена контроля, наследственные споры.</li>
+                        <li>Сложные активы, которые важно оперативно продать.</li>
+                        <li>Обременения, аресты, «ошибки» в структуре владения, риск потери актива.</li>
+                        <li>Дистресс и специальные ситуации: долговая нагрузка, санкционные и комплаенс-риски.</li>
+                        <li>Сделка «не сходится»: нужен инвестор или новая конструкция сделки.</li>
+                    </ul>
+                </div>
+                <div class="strict-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="card-num"
+                        style="font-size: 1.5rem; margin-bottom: 15px; display: block; color: var(--color-accent); font-weight: bold; font-family: var(--font-heading); text-transform: uppercase;">Наши
+                        клиенты</span>
+                    <ul
+                        style="padding-left: 20px; color: var(--color-grey-dark); font-size: 1.1rem; line-height: 1.7; display: flex; flex-direction: column; gap: 10px;">
+                        <li><strong>Собственники и совладельцы</strong>, у которых под угрозой капитал или контроль над
+                            активом.</li>
+                        <li><strong>Советы директоров, финансовые институты, банки и кредиторы</strong>, когда нужен
+                            предсказуемый план сохранения и реструктуризации.</li>
+                        <li><strong>Покупатели и инвестфонды</strong>, которым требуется партнёр «последней мили».</li>
+                        <li><strong>Регуляторы и государственные органы</strong> — в рамках законных процедур.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="site-footer bg-black" style="padding: 100px 0;">
+        <div class="container">
+            <!-- Top Part: Form -->
+            <div data-aos="fade-up" style="max-width: 800px; margin: 0 auto 80px auto;">
+                <h2 class="section-title tracking-tight text-white mb-5 text-center" style="font-size: 3rem;">СВЯЖИТЕСЬ
+                    С НАМИ<span class="vibrate-mark">!</span></h2>
+                <form id="contactForm" class="contact-form" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <input type="text" name="full_name" placeholder="ФИО*" required
+                            style="padding: 18px; border: 1px solid #333; background: #111; color: #fff; width: 100%; box-sizing: border-box; font-family: var(--font-body); font-size: 1.1rem;">
+                        <input type="tel" name="phone" placeholder="Телефон*" required
+                            style="padding: 18px; border: 1px solid #333; background: #111; color: #fff; width: 100%; box-sizing: border-box; font-family: var(--font-body); font-size: 1.1rem;">
+                    </div>
+                    <input type="email" name="email" placeholder="Email*" required
+                        style="padding: 18px; border: 1px solid #333; background: #111; color: #fff; width: 100%; box-sizing: border-box; font-family: var(--font-body); font-size: 1.1rem;">
+                    <textarea name="details"
+                        placeholder="Подробности запроса (опишите вашу ситуацию и добавьте полезные ссылки)*" required
+                        rows="4"
+                        style="padding: 18px; border: 1px solid #333; background: #111; color: #fff; width: 100%; box-sizing: border-box; font-family: var(--font-body); font-size: 1.1rem; resize: vertical;"></textarea>
+
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-top: 10px;">
+                        <label
+                            style="color: #999; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 10px; cursor: pointer; max-width: 450px;">
+                            <input type="checkbox" required style="margin-top: 3px; transform: scale(1.1);">
+                            <span>Я согласен на обработку персональных данных в соответствии с <a href="#"
+                                    style="color: var(--color-accent); text-decoration: underline;">политикой
+                                    обработки</a>.</span>
+                        </label>
+                        <button type="submit" class="btn-primary"
+                            style="cursor: pointer; border: none; font-size: 1.1rem; padding: 15px 40px; min-width: 200px;">Отправить
+                            запрос</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Bottom Part: Contacts Split -->
+            <div class="footer-bottom-info"
+                style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; padding-top: 50px; border-top: 1px solid #222;"
+                data-aos="fade-up">
+
+                <!-- Left: Email -->
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-accent);">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <a href="mailto:a-1@a-1.com"
+                        style="color: #fff; text-decoration: none; font-size: 1.25rem; font-weight: bold; transition: opacity 0.3s;"
+                        class="hover-opacity">a-1@a-1.com</a>
+                </div>
+
+                <!-- Right: Phone & Address -->
+                <div
+                    style="display: flex; flex-direction: column; gap: 15px; align-items: flex-start; text-align: left; max-width: 450px;">
+                    <p style="display: flex; align-items: center; gap: 15px; font-size: 1.25rem;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="color: var(--color-accent);">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <a href="tel:+74959670000"
+                            style="color: #fff; text-decoration: none; font-weight: bold; transition: opacity 0.3s;"
+                            class="hover-opacity">+7 495 967-00-00</a>
+                    </p>
+                    <p style="display: flex; align-items: flex-start; gap: 15px; font-size: 1.1rem; color: #fff;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="color: var(--color-accent); min-width: 24px; margin-top: 2px;">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Краснопресненская наб., 12, Центр Международной Торговли, 7-й подъезд.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container border-top text-center text-grey" style="margin-top: 80px; padding-top: 30px;">
+            <p>&copy; 2026 A1. Все права защищены. <br>Иллюстрации в стиле Роя Лихтенштейна.</p>
         </div>
     </footer>
 
+
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <!-- Custom Script -->
     <script src="script.js"></script>
