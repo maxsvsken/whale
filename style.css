@@ -681,7 +681,12 @@ body {
         /* offset for nav */
         flex-direction: column;
         /* Текст сверху, картинка снизу */
-        gap: 15px;
+        gap: 35px;
+    }
+
+    .hero-content {
+        flex: none !important;
+        width: 100%;
     }
 
     .hero-title {
@@ -696,6 +701,8 @@ body {
     }
 
     .hero-image-wrapper {
+        flex: none !important;
+        width: 100%;
         max-width: 100%;
         border-radius: 15px;
         overflow: visible !important;
