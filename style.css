@@ -660,17 +660,43 @@ body {
     }
 
     .hero-layout {
-        padding-top: 100px;
+        padding-top: 80px;
         /* offset for nav */
+        flex-direction: column;
+        /* Текст сверху, картинка снизу */
+        gap: 20px;
     }
 
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 2.2rem;
+        /* Еще меньше для мобильных */
+        margin-bottom: 10px;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .hero-image-wrapper {
+        max-width: 100%;
+        max-height: 40vh;
+        /* Ограничиваем высоту на мобильных */
+        border-radius: 15px;
+    }
+
+    .hero-image {
+        height: 100%;
+        object-position: center top;
+    }
+
+    /* Форсируем видимость на мобильных, если GSAP задержится */
+    .hero-image-wrapper,
+    .title-word,
+    .char,
+    .hero-btn {
+        visibility: visible;
+        opacity: 1;
     }
 
     .section-title {
