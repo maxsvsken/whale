@@ -6,25 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (burger) {
         burger.addEventListener('click', () => {
-            // Just a simple toggle for mobile for now
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '-4px'; // align with border
-                navLinks.style.right = '-4px';
-                navLinks.style.background = '#FFFFFF';
-                navLinks.style.border = '4px solid #111111';
-                navLinks.style.padding = '20px';
-                navLinks.style.gap = '20px';
-                navLinks.style.boxShadow = '10px 10px 0px #111111';
-
-                // Set z-index
-                navLinks.style.zIndex = '999';
-            }
+            navLinks.classList.toggle('nav-active');
+            burger.classList.toggle('open');
         });
     }
 
