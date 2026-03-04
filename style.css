@@ -681,7 +681,7 @@ body {
         /* offset for nav */
         flex-direction: column;
         /* Текст сверху, картинка снизу */
-        gap: 35px;
+        gap: 45px;
     }
 
     .hero-content {
@@ -697,7 +697,7 @@ body {
 
     .hero-subtitle {
         font-size: 1rem;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
     }
 
     .hero-image-wrapper {
