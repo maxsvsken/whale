@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (section.id === 'code') {
                 const list = section.querySelector('.code-list');
                 const intro = section.querySelector('.code-intro');
-                
+
                 if (list && intro) {
                     // Force the section to pin and the list to scroll
                     const tl = gsap.timeline({
@@ -265,15 +265,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             scrub: 1,
                             pinSpacing: true,
                             onUpdate: (self) => {
-                                // Smoothly move the list up based on scroll progress
-                                const scrollDistance = list.offsetHeight - window.innerHeight + 200;
+                                // Scroll the list through its height
+                                const scrollDistance = list.offsetHeight - window.innerHeight + 120;
                                 if (scrollDistance > 0) {
                                     gsap.set(list, { y: -scrollDistance * self.progress });
                                 }
                             }
                         }
                     });
-                    
+
                     // Add dot tracking
                     ScrollTrigger.create({
                         trigger: section,
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         onEnter: () => updateDot(index),
                         onEnterBack: () => updateDot(index)
                     });
-                    
+
                     return; // Skip default logic for this section
                 }
             }

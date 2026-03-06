@@ -557,10 +557,19 @@ body {
 }
 
 /* Code Layout */
+.code-section {
+    padding: 60px 0 !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
 .code-layout {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 80px;
+    gap: 40px;
+    width: 100%;
 }
 
 .code-intro {
@@ -591,8 +600,9 @@ body {
 
 .code-item {
     display: flex;
-    gap: 40px;
-    padding: 40px 0;
+    gap: 30px;
+    padding: 20px 0;
+    /* Balanced padding */
     border-bottom: 1px solid #333333;
 }
 
