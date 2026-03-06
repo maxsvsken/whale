@@ -249,8 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 opacity: 1 // Ensure section itself is visible
             });
 
-            // Special handling for the Code (rules) section
-            if (section.id === 'code') {
+            // Special handling for the Code (rules) section - only on desktop
+            if (section.id === 'code' && window.innerWidth > 1100) {
                 const list = section.querySelector('.code-list');
                 const intro = section.querySelector('.code-intro');
 
