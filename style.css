@@ -737,6 +737,14 @@ body {
         gap: 40px;
     }
 
+    .director-text {
+        order: 2;
+    }
+
+    .director-img {
+        order: 1;
+    }
+
     .code-intro {
         position: static;
     }
