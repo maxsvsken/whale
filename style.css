@@ -117,7 +117,7 @@ body {
     width: 100%;
     height: 100%;
     /* Pure white background for the whole section blend */
-    background-color: rgb(160, 160, 160);
+    background-color: #0056b3;
     background-image: url('images/vector-bright-black-and-white-rays-background.jpg');
     background-size: cover;
     background-position: center;
@@ -127,9 +127,9 @@ body {
     background-blend-mode: screen;
 
     /* High contrast makes the blue more vibrant and the white more 'pure' */
-    filter: contrast(1.8) brightness(1.1);
+    filter: contrast(1.8) brightness(1.2);
 
-    opacity: 0.25;
+    opacity: 0.35;
     /* Visible but professional */
     z-index: 0;
     pointer-events: none;
@@ -194,6 +194,8 @@ body {
     position: relative;
     overflow: hidden;
     background-color: var(--color-white) !important;
+    z-index: 20 !important;
+    /* Гарантирует, что никто сверху не перекроет секцию */
 }
 
 .director-section::before,
@@ -204,14 +206,14 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(150, 150, 150);
+    background-color: #0056b3;
     background-image: url('images/vector-bright-black-and-white-rays-background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: screen;
     filter: contrast(1.8) brightness(1.1);
-    opacity: 0.15;
+    opacity: 0.12;
     z-index: 0;
     pointer-events: none;
 }
@@ -220,6 +222,20 @@ body {
 .myths-section>.container {
     position: relative;
     z-index: 1;
+}
+
+/* Enhanced Readability for Ray Backgrounds */
+.hero-title,
+.hero-subtitle,
+.director-section .section-title,
+.myths-section .section-title {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.director-text p,
+.myths-section .faq-item p {
+    position: relative;
+    z-index: 2;
 }
 
 /* 02 Today Section - Classic Grid Pattern */
@@ -465,19 +481,96 @@ body {
     display: inline-block;
 }
 
-/* FAQ Triangle Colors */
+/* Professional Accordion Animation */
+.faq-item {
+    position: relative;
+    z-index: 10;
+}
+
 .faq-item summary {
-    display: list-item;
-    /* Обеспечиваем отображение стандартного маркера */
-    list-style-position: inside;
+    display: block;
+    /* Убирает стандартный маркер списка */
+    list-style: none;
+    position: relative;
+    padding: 25px 0;
+    /* Перенесли padding с details на summary для расширения зоны клика */
+    padding-right: 40px;
+    /* Место для иконки крестика */
+    outline: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    /* Убирает выделение при быстром клике */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    /* Отключает системную задержку тапа в 300мс на мобильных устройствах */
+
+    /* Стили текста из инлайна */
+    font-weight: bold;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: var(--color-black);
+    z-index: 10;
 }
 
-.faq-item summary::-webkit-details-marker {
-    color: var(--color-accent) !important;
-}
-
+/* Полностью скрываем дефолтные треугольники во всех браузерах */
+.faq-item summary::-webkit-details-marker,
 .faq-item summary::marker {
+    display: none;
+    content: "";
+}
+
+/* Кастомная иконка плюс/минус */
+.faq-item summary::after,
+.faq-item summary::before {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 18px;
+    height: 3px;
+    background-color: var(--color-accent);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+    pointer-events: none;
+    /* Гарантирует, что клики не будут блокироваться самой иконкой */
+}
+
+/* Горизонтальная линия */
+.faq-item summary::before {
+    transform: translateY(-50%);
+}
+
+/* Вертикальная линия (формирует плюс) */
+.faq-item summary::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Состояние "Открыто": вертикальная линия ложится на горизонтальную (получается минус) */
+details[open].faq-item summary::after {
+    transform: translateY(-50%) rotate(0deg);
+}
+
+/* Эффект при наведении на заголовок */
+.faq-item summary:hover {
     color: var(--color-accent) !important;
+}
+
+/* Плавное выпадение текста */
+details[open].faq-item p {
+    animation: faqReveal 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes faqReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Legend & Director Layout */
@@ -570,6 +663,8 @@ body {
     min-height: 100vh !important;
     display: flex !important;
     align-items: center !important;
+    overflow: hidden !important;
+    /* Обрезает невидимый хвост секции, блокировавший клики */
 }
 
 .code-layout {

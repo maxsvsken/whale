@@ -287,7 +287,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            const isLongSection = section.offsetHeight > window.innerHeight * 1.2;
+            // Мифы и руководство не должны фиксироваться и исчезать мгновенно
+            const isLongSection = section.offsetHeight > window.innerHeight * 1.2 || section.id === 'myths' || section.id === 'director';
 
             if (!isLongSection) {
                 const tl = gsap.timeline({
@@ -310,8 +311,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             } else {
-                // Long sections fade out container at the end
-                if (container) {
+                // Только для обычных длинных секций делаем fade-out, мифы и руководство не трогаем
+                if (container && section.id !== 'myths' && section.id !== 'director') {
                     gsap.to(container, {
                         opacity: 0,
                         scale: 0.9,
