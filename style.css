@@ -928,12 +928,17 @@ details[open].faq-item p {
         padding: 60px 0;
     }
 
+    .hero-layout.container {
+        margin-top: 0 !important;
+        padding-top: 80px;
+        /* Отступ под шапку */
+    }
+
     .hero-layout {
-        padding-top: 47px;
-        /* offset for nav */
+        /* padding-top: 47px; убираем дубль */
         flex-direction: column;
         /* Текст сверху, картинка снизу */
-        gap: 80px;
+        gap: 60px;
         justify-content: flex-start !important;
     }
 

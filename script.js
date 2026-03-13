@@ -152,8 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const href = this.getAttribute('href');
             if (!href) return;
 
-            // На мобильных устройствах не перехватываем клик (убираем e.preventDefault), 
-            // просто надежно закрываем меню и даем браузеру самому перейти по ссылке.
+            // Специальная обработка для возврата на главную
+            const isHome = href === '#' || href === '#hero';
+
             if (window.innerWidth <= 900) {
                 if (navLinks) {
                     navLinks.classList.remove('nav-active');
@@ -163,17 +164,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     const n = document.querySelector('.navbar');
                     if (n) n.classList.remove('menu-open');
                 }
-                return; // Нативный прыжок по якорю
+
+                if (isHome) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                return; // Нативный прыжок по якорю для остальных
             }
 
             // --- Логика GSAP для десктопа ниже ---
             e.preventDefault();
             e.stopPropagation();
 
-            const targetId = (href === '#' || !href) ? '#hero' : href;
+            const targetId = isHome ? '#hero' : href;
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
+                if (isHome) {
+                    gsap.to(window, { duration: 0, scrollTo: 0, ease: "none" });
+                    return;
+                }
                 // If GSAP and ScrollTrigger are ready
                 if (window.gsap && window.ScrollTrigger) {
                     let triggers = ScrollTrigger.getAll();
