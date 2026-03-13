@@ -738,7 +738,7 @@ details[open].faq-item p {
 
 .code-intro {
     position: sticky;
-    top: 120px;
+    top: 80px;
     align-self: start;
     text-align: center;
 }
