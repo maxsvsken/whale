@@ -1039,8 +1039,7 @@ details[open].faq-item p {
     }
 
     .legend-content,
-    .director-text,
-    .code-text-content {
+    .director-text {
         text-align: center !important;
         display: flex !important;
         flex-direction: column !important;
@@ -1048,9 +1047,20 @@ details[open].faq-item p {
         width: 100% !important;
     }
 
+    .code-text-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+    }
+
     .legend-content *,
-    .director-text *,
-    .code-text-content * {
+    .director-text * {
+        text-align: center !important;
+    }
+
+    /* Code section title remains centered */
+    .code-text-content h2 {
         text-align: center !important;
     }
 
@@ -1176,6 +1186,10 @@ details[open].faq-item p {
         gap: 20px;
         padding: 25px 0;
         transform: none !important;
+        flex-direction: row-reverse;
+        /* Put number on the right */
+        text-align: right;
+        align-items: flex-start;
     }
 
     .code-num {
