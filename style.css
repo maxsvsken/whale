@@ -994,6 +994,16 @@ details[open].faq-item p {
         /* Гарантируем полный показ */
     }
 
+    .hero-image-wrapper .speech-bubble {
+        top: -15%;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        max-width: 90%;
+        font-size: 1.1rem;
+        padding: 12px 20px;
+    }
+
     /* Форсируем видимость на мобильных, если GSAP задержится */
     .hero-image-wrapper,
     .title-word,
