@@ -932,7 +932,7 @@ details[open].faq-item p {
         /* offset for nav */
         flex-direction: column;
         /* Текст сверху, картинка снизу */
-        gap: 80px;
+        gap: 60px;
         justify-content: flex-start !important;
     }
 
@@ -959,7 +959,7 @@ details[open].faq-item p {
 
     .hero-btn {
         display: block !important;
-        margin: 40px auto 0 auto !important;
+        margin: 40px auto 120px auto !important;
         width: fit-content !important;
         visibility: visible !important;
         opacity: 0;
@@ -995,7 +995,7 @@ details[open].faq-item p {
     }
 
     .hero-image-wrapper .speech-bubble {
-        top: -40px;
+        top: -60px;
         right: 0;
         left: 0;
         margin: 0 auto;
