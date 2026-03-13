@@ -432,6 +432,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- FAQ (Myths) Refresh ScrollTrigger on toggle ---
+    const faqDetails = document.querySelectorAll('#myths details');
+    faqDetails.forEach(detail => {
+        detail.addEventListener('toggle', () => {
+            // Give it a tiny moment for the browser to calculate the new height
+            setTimeout(() => {
+                if (window.ScrollTrigger) {
+                    ScrollTrigger.refresh();
+                }
+            }, 50);
+        });
+    });
+
     // --- Navbar Scroll Logic ---
     const navbar = document.querySelector('.navbar');
     if (navbar) {
