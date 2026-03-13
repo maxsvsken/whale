@@ -720,11 +720,11 @@ details[open].faq-item p {
 
 /* Code Layout */
 .code-section {
-    padding: 60px 0 !important;
+    padding: 100px 0 60px 0 !important;
     height: 100vh !important;
     min-height: 100vh !important;
     display: flex !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     overflow: hidden !important;
     /* Обрезает невидимый хвост секции, блокировавший клики */
 }
@@ -734,13 +734,15 @@ details[open].faq-item p {
     grid-template-columns: 1fr 1.5fr;
     gap: 40px;
     width: 100%;
+    align-items: flex-start;
 }
 
 .code-intro {
     position: sticky;
-    top: 80px;
+    top: 100px;
     align-self: start;
     text-align: center;
+    padding-top: 20px;
 }
 
 .code-list {
