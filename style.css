@@ -1039,11 +1039,19 @@ details[open].faq-item p {
     }
 
     .legend-content,
-    .director-text {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .director-text,
+    .code-text-content {
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .legend-content *,
+    .director-text *,
+    .code-text-content * {
+        text-align: center !important;
     }
 
     .section-desc {
@@ -1153,11 +1161,6 @@ details[open].faq-item p {
     .code-intro-img .art-frame {
         max-width: 100% !important;
         margin: 20px auto !important;
-    }
-
-    .code-text-content {
-        width: 100% !important;
-        text-align: center;
     }
 
     .code-list {
