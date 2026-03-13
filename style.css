@@ -928,7 +928,7 @@ details[open].faq-item p {
     }
 
     .hero-layout {
-        padding-top: 50px;
+        padding-top: 47px;
         /* offset for nav */
         flex-direction: column;
         /* Текст сверху, картинка снизу */
