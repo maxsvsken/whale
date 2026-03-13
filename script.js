@@ -196,15 +196,22 @@ document.addEventListener('DOMContentLoaded', () => {
         counters.forEach(counter => {
             const animate = () => {
                 const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText.replace('%', '') || 0;
-                const inc = target / speed;
+                const hasPlus = counter.getAttribute('data-plus') === 'true';
+                const countString = counter.innerText.replace('%', '').replace('+', '');
+                const count = +countString || 0;
+                const inc = Math.max(target / speed, 1);
 
                 if (count < target) {
-                    const nextCount = count + inc;
-                    counter.innerText = Math.ceil(nextCount) + '%';
-                    setTimeout(animate, 30); // Increased delay for slower, more visible updates
+                    const nextCount = Math.min(count + inc, target);
+                    let displayValue = Math.ceil(nextCount);
+                    if (hasPlus) {
+                        counter.innerText = displayValue + '+';
+                    } else {
+                        counter.innerText = displayValue;
+                    }
+                    setTimeout(animate, 30);
                 } else {
-                    counter.innerText = target + '%';
+                    counter.innerText = target + (hasPlus ? '+' : '');
                 }
             }
             animate();
@@ -214,8 +221,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Reset to 0 before starting animation to make it visible every time
-                counters.forEach(c => c.innerText = '0%');
+                // Reset before starting animation
+                counters.forEach(c => c.innerText = '0');
                 animateCounters();
             }
         });
