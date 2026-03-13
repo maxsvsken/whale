@@ -556,8 +556,9 @@ body {
     position: relative;
     padding: 25px 0;
     /* Перенесли padding с details на summary для расширения зоны клика */
-    padding-right: 40px;
-    /* Место для иконки крестика */
+    padding-left: 40px;
+    padding-right: 0;
+    /* Место для иконки крестика слева */
     outline: none;
     transition: color 0.3s ease;
     cursor: pointer;
@@ -588,7 +589,7 @@ body {
 .faq-item summary::before {
     content: '';
     position: absolute;
-    right: 10px;
+    left: 0;
     top: 50%;
     width: 18px;
     height: 3px;
@@ -1158,21 +1159,22 @@ details[open].faq-item p {
         gap: 25px !important;
     }
 
-    /* Move Dot Nav to the left on mobile to avoid conflict with FAQ pluses and improve UX */
+    /* Return Dot Nav to the right since pluses are now on the left */
     .dot-nav {
-        right: auto !important;
-        left: 10px !important;
+        right: 15px !important;
+        left: auto !important;
     }
 
     .faq-item summary {
         font-size: 1.1rem;
         padding: 20px 0;
-        padding-right: 35px;
+        padding-left: 35px;
+        padding-right: 0;
     }
 
     .faq-item summary::before,
     .faq-item summary::after {
-        right: 0;
+        left: 0;
     }
 }
 
