@@ -198,10 +198,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             ease: "none"
                         });
                     } else {
-                        // For other elements, use offsetTop
+                        // For other elements, use offsetTop with offsetY for header
                         gsap.to(window, {
                             duration: 0,
-                            scrollTo: { y: targetElement.offsetTop, autoKill: false },
+                            scrollTo: { y: targetElement.offsetTop, offsetY: 90, autoKill: false },
                             ease: "none"
                         });
                     }

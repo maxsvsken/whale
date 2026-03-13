@@ -25,6 +25,8 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    scroll-padding-top: 90px;
+    /* Offset for fixed header */
 }
 
 body {
@@ -925,7 +927,7 @@ details[open].faq-item p {
     }
 
     .strict-section {
-        padding: 60px 0;
+        padding: 100px 0 60px 0;
     }
 
     .hero-layout.container {
