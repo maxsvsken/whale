@@ -770,51 +770,55 @@ details[open].faq-item p {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 80px, black calc(100% - 80px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0px, black 80px, black calc(100% - 80px), transparent 100%);
 }
 
 .code-list {
     display: flex;
     flex-direction: column;
     padding-right: 20px;
-    padding-bottom: 30vh; /* space for stacking */
+}
+
+/* Custom scrollbar for code list */
+.code-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.code-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.code-list::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 2px;
 }
 
 .code-item {
     display: flex;
     gap: 30px;
-    padding: 30px;
-    margin-bottom: 20px;
-    background: var(--color-dark);
-    border: 3px solid var(--color-white);
-    position: relative;
-    box-shadow: 10px 10px 0px var(--color-accent);
-    z-index: 1;
-}
-
-.code-item:nth-child(even) {
-    box-shadow: 10px 10px 0px var(--color-white);
+    padding: 20px 0;
+    /* Balanced padding */
+    border-bottom: 1px solid #333333;
 }
 
 .code-num {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--color-accent);
-    line-height: 1;
-    flex-shrink: 0;
+    line-height: 1.2;
 }
 
 .code-content h4 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-family: var(--font-heading);
     text-transform: uppercase;
-    margin-bottom: 12px;
-    color: var(--color-white);
+    margin-bottom: 10px;
 }
 
 .code-content p {
-    color: #CCCCCC;
-    font-size: 1.15rem;
-    margin: 0;
+    color: #AAAAAA;
+    font-size: 1.1rem;
 }
 
 /* Footer Layout */
@@ -999,9 +1003,9 @@ details[open].faq-item p {
         width: 100% !important;
         padding-right: 0 !important;
         position: relative !important;
-        margin-top: 50px !important;
+        margin-top: 0 !important;
         overflow: visible !important;
-        /* Remove transform: none to allow GSAP stacking */
+        transform: none; /* allow GSAP scroll */
     }
 }
 

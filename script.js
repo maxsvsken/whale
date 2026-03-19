@@ -289,62 +289,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 const intro = section.querySelector('.code-intro-img');
 
                 if (list && intro) {
-                    const items = section.querySelectorAll('.code-item');
-                    const totalItems = items.length;
-                    
-                    // Set stacking order upfront
-                    items.forEach((item, i) => {
-                        gsap.set(item, { zIndex: i + 1 });
-                    });
+                    let scrollDistance = 0;
 
-                    // Main Pinning ScrollTrigger
-                    const mainST = ScrollTrigger.create({
-                        trigger: section,
-                        start: "top top",
-                        end: () => `+=${totalItems * 100}%`, // Sufficient length
-                        pin: true,
-                        pinSpacing: true,
-                        scrub: 1
-                    });
-
-                    // Individual Item Animations
-                    items.forEach((item, i) => {
-                        if (i === totalItems - 1) return; // Last item doesn't collapse
-
-                        const content = item.querySelector('.code-content p');
-                        const header = item.querySelector('.code-content h4');
-                        const num = item.querySelector('.code-num');
-                        
-                        // Use a dummy tween to drive the scroll-based stacking
-                        gsap.timeline({
-                            scrollTrigger: {
-                                trigger: section,
-                                start: () => mainST.start + (i * window.innerHeight),
-                                end: () => mainST.start + ((i + 1) * window.innerHeight),
-                                scrub: true
-                            }
-                        })
-                        .to(content, {
-                            height: 0,
-                            opacity: 0,
-                            margin: 0,
-                            padding: 0,
-                            ease: "none"
-                        })
-                        .to(item, {
-                            marginBottom: () => {
-                                const h = Math.max(header.offsetHeight, num.offsetHeight) + 60;
-                                return -(item.offsetHeight - h);
+                    // Force the section to pin and the list to scroll
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top top",
+                            end: () => `+=${list.offsetHeight}`,
+                            pin: true,
+                            scrub: 1,
+                            pinSpacing: true,
+                            onRefresh: () => {
+                                // Calculate distance to scroll the list safely on any device
+                                gsap.set(list, { y: 0 }); // Temporarily reset to clear transforms
+                                const listTopOffset = list.getBoundingClientRect().top - section.getBoundingClientRect().top;
+                                const visibleListHeight = window.innerHeight - listTopOffset;
+                                scrollDistance = Math.max(0, list.offsetHeight - visibleListHeight + 80);
                             },
-                            ease: "none"
-                        }, "<");
+                            onUpdate: (self) => {
+                                // Scroll the list precisely
+                                if (scrollDistance > 0) {
+                                    gsap.set(list, { y: -scrollDistance * self.progress });
+                                }
+                            }
+                        }
                     });
 
                     // Add dot tracking
                     ScrollTrigger.create({
                         trigger: section,
                         start: "top 50%",
-                        end: () => mainST.end,
+                        end: () => `+=${list.offsetHeight}`,
                         onEnter: () => updateDot(index),
                         onEnterBack: () => updateDot(index)
                     });
