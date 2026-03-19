@@ -961,19 +961,19 @@ details[open].faq-item p {
     }
 
     .code-intro-img .art-frame {
-        max-width: 600px;
+        max-width: 100%;
         margin: 0 auto;
-        padding: 5px; /* compact padding like other sections */
+        padding: 15px; /* same as base .art-frame */
     }
 
     .code-intro-img img {
-        height: 200px !important;
-        object-fit: cover !important;
+        height: auto !important;
         width: 100% !important;
+        object-fit: cover !important;
     }
 
     .code-section {
-        height: 100vh !important;
+        height: auto !important;
         min-height: 100vh !important;
         display: flex !important;
         flex-direction: column !important;
@@ -985,18 +985,18 @@ details[open].faq-item p {
     .code-layout {
         display: flex !important;
         flex-direction: column !important;
-        height: 100% !important;
+        height: auto !important;
         gap: 0 !important;
-        flex: 1;
-        overflow: hidden !important;
+        flex: none;
+        overflow: visible !important;
     }
 
     .code-text-content {
         display: flex !important;
         flex-direction: column !important;
-        flex: 1;
+        flex: none;
         min-height: 0;
-        overflow: hidden !important;
+        overflow: visible !important;
     }
 
     .code-list {
@@ -1005,7 +1005,7 @@ details[open].faq-item p {
         position: relative !important;
         margin-top: 0 !important;
         overflow: visible !important;
-        transform: none; /* remove !important to allow GSAP scroll */
+        transform: none !important;
     }
 }
 
@@ -1241,13 +1241,13 @@ details[open].faq-item p {
     .code-intro-img .art-frame {
         max-width: 100% !important;
         margin: 15px auto !important;
-        padding: 5px !important;
+        padding: 15px !important;
     }
     
     .code-intro-img img {
-        height: 160px !important;
-        object-fit: cover !important;
+        height: auto !important;
         width: 100% !important;
+        object-fit: cover !important;
     }
 
     .code-item {
