@@ -317,12 +317,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             },
                             onUpdate: (self) => {
                                 if (scrollDistance > 0) {
-                                    const y = -scrollDistance * self.progress;
-                                    
+                                    const fadeStart = 0;
+                                    const fadeEnd = 0.2; // vanish in first 20% of section scroll
+                                    let y = 0;
+
                                     // Mobile-specific fade and collapse
                                     if (window.innerWidth <= 1100) {
-                                        const fadeStart = 0;
-                                        const fadeEnd = 0.2; // vanish in first 20% of section scroll
                                         const introProg = gsap.utils.normalize(fadeStart, fadeEnd, self.progress);
                                         const introOpacity = gsap.utils.clamp(0, 1, 1 - introProg);
                                         
@@ -331,14 +331,23 @@ document.addEventListener('DOMContentLoaded', () => {
                                             marginTop: -intro.offsetHeight * introProg,
                                             pointerEvents: introOpacity < 0.1 ? 'none' : 'auto'
                                         });
+
+                                        // Move the list ONLY after intro is gone
+                                        if (self.progress > fadeEnd) {
+                                            const listProg = gsap.utils.normalize(fadeEnd, 1, self.progress);
+                                            y = -(scrollDistance - intro.offsetHeight) * listProg;
+                                        }
+                                    } else {
+                                        // Desktop standard scroll
+                                        y = -scrollDistance * self.progress;
                                     }
 
                                     gsap.set(list, { y });
                                     
                                     // Dynamic mask: delay top fade until intro is almost gone
                                     let fadeAmount = 0;
-                                    if (self.progress > 0.15) { // Only start fading text after intro is mostly gone
-                                        const textProg = gsap.utils.normalize(0.15, 1, self.progress);
+                                    if (self.progress > fadeEnd + 0.05) { 
+                                        const textProg = gsap.utils.normalize(fadeEnd + 0.05, 1, self.progress);
                                         fadeAmount = Math.min(80, textProg * 600); 
                                     }
                                     
