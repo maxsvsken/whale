@@ -301,14 +301,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             pinSpacing: true,
                             onRefresh: () => {
                                 const isPortable = window.innerWidth <= 1320;
-                                const headersOffset = isPortable ? 140 : 0;
+                                const headersOffset = isPortable ? 90 : 0;
                                 
                                 gsap.set(intro, { y: headersOffset, opacity: 1 });
                                 const introHeight = intro.offsetHeight;
-                                gsap.set(list, { y: headersOffset + introHeight + 20, opacity: 1 });
+                                gsap.set(list, { y: headersOffset + introHeight + 5, opacity: 1 });
                                 
                                 const listHeight = list.offsetHeight;
-                                scrollDistance = Math.max(0, listHeight + introHeight + headersOffset + 100 - window.innerHeight);
+                                scrollDistance = Math.max(0, listHeight + introHeight + headersOffset + 80 - window.innerHeight);
                                 
                                 section._headersOffset = headersOffset;
                                 section._introHeight = introHeight;
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                                     if (window.innerWidth <= 1320) {
                                         gsap.set(intro, { y: hOffset - scrollY, opacity: gsap.utils.clamp(0.2, 1, 1 - (self.progress * 1.5)) });
-                                        gsap.set(list, { y: hOffset + iHeight + 20 - scrollY, opacity: 1 });
+                                        gsap.set(list, { y: hOffset + iHeight + 5 - scrollY, opacity: 1 });
                                     } else {
                                         gsap.set(list, { y: -scrollY });
                                     }

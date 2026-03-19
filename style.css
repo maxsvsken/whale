@@ -967,15 +967,15 @@ details[open].faq-item p {
         position: sticky !important;
         top: 0;
         z-index: 30 !important;
-        padding-top: 20px;
+        padding-top: 10px;
         padding-bottom: 5px;
     }
 
     #code .code-main-title {
         position: sticky !important;
-        top: 50px; /* offset by section label approx height */
+        top: 40px; /* more compact offset */
         z-index: 25 !important;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
         /* Make bottom of the sticky panel semi-transparent */
         -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, rgba(0,0,0,0.4) 100%);
         mask-image: linear-gradient(to bottom, black 0%, black 80%, rgba(0,0,0,0.4) 100%);
@@ -984,7 +984,7 @@ details[open].faq-item p {
     .code-intro-img {
         position: relative !important;
         z-index: 20 !important;
-        padding-bottom: 20px;
+        padding-bottom: 0px;
         text-align: center;
         flex-shrink: 0;
     }
