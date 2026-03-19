@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         scrollTrigger: {
                             trigger: section,
                             start: "top top",
-                            end: () => `+=${list.offsetHeight * 1.5}`, // Give it extra scroll length for feeling
+                            end: () => `+=${list.offsetHeight * 2.5}`, // Increased for more time per card
                             pin: true,
                             scrub: 1,
                             pinSpacing: true
@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 opacity: 0,
                                 margin: 0,
                                 duration: 1,
-                                ease: "none"
+                                ease: "power1.inOut"
                             });
                             
                             // Negative margin creates the "stacking" effect (next card slides over)
@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             tl.to(item, {
                                 marginBottom: -(totalHeight - headerHeight),
                                 duration: 1,
-                                ease: "none"
+                                ease: "power1.inOut"
                             }, "<"); 
                         }
                     });
