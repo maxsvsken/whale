@@ -281,12 +281,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 opacity: 1 // Ensure section itself is visible
             });
 
-            // Special handling for the Code (rules) section - only on desktop
-            if (section.id === 'code' && window.innerWidth > 1100) {
+            // Special handling for the Code (rules) section - on all devices
+            if (section.id === 'code') {
                 const list = section.querySelector('.code-list');
-                const intro = section.querySelector('.code-intro');
+                const intro = section.querySelector('.code-intro-img');
 
                 if (list && intro) {
+                    let scrollDistance = 0;
+
                     // Force the section to pin and the list to scroll
                     const tl = gsap.timeline({
                         scrollTrigger: {
@@ -296,9 +298,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             pin: true,
                             scrub: 1,
                             pinSpacing: true,
+                            onRefresh: () => {
+                                // Calculate distance to scroll the list safely on any device
+                                gsap.set(list, { y: 0 }); // Temporarily reset to clear transforms
+                                const listTopOffset = list.getBoundingClientRect().top - section.getBoundingClientRect().top;
+                                const visibleListHeight = window.innerHeight - listTopOffset;
+                                scrollDistance = Math.max(0, list.offsetHeight - visibleListHeight + 80);
+                            },
                             onUpdate: (self) => {
-                                // Scroll the list through its height
-                                const scrollDistance = list.offsetHeight - window.innerHeight + 120;
+                                // Scroll the list precisely
                                 if (scrollDistance > 0) {
                                     gsap.set(list, { y: -scrollDistance * self.progress });
                                 }
@@ -320,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Мифы и руководство не должны фиксироваться и исчезать мгновенно
-            const isLongSection = section.offsetHeight > window.innerHeight * 1.2 || section.id === 'myths' || section.id === 'director';
+            const isLongSection = section.offsetHeight > window.innerHeight * 1.2 || section.id === 'myths' || section.id === 'director' || section.id === 'code';
 
             if (!isLongSection) {
                 const tl = gsap.timeline({
@@ -344,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } else {
                 // Только для обычных длинных секций делаем fade-out, мифы и руководство не трогаем
-                if (container && section.id !== 'myths' && section.id !== 'director') {
+                if (container && section.id !== 'myths' && section.id !== 'director' && section.id !== 'code') {
                     gsap.to(container, {
                         opacity: 0,
                         scale: 0.9,

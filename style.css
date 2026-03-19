@@ -769,6 +769,9 @@ details[open].faq-item p {
 .code-text-content {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 80px, black calc(100% - 80px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0px, black 80px, black calc(100% - 80px), transparent 100%);
 }
 
 .code-list {
@@ -949,8 +952,58 @@ details[open].faq-item p {
         order: 1;
     }
 
-    .code-intro {
-        position: static;
+    .code-intro-img {
+        position: static !important;
+        width: 100% !important;
+        margin-bottom: 20px !important;
+        text-align: center;
+        flex-shrink: 0;
+    }
+
+    .code-intro-img .art-frame {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .code-intro-img img {
+        max-height: 250px !important;
+        object-fit: cover !important;
+    }
+
+    .code-section {
+        height: 100vh !important;
+        min-height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding-top: 100px !important;
+        padding-bottom: 20px !important;
+        overflow: hidden !important;
+    }
+
+    .code-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+        gap: 0 !important;
+        flex: 1;
+        overflow: hidden !important;
+    }
+
+    .code-text-content {
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1;
+        min-height: 0;
+        overflow: hidden !important;
+    }
+
+    .code-list {
+        width: 100% !important;
+        padding-right: 0 !important;
+        position: relative !important;
+        margin-top: 0 !important;
+        overflow: visible !important;
+        transform: none; /* remove !important to allow GSAP scroll */
     }
 }
 
@@ -1179,43 +1232,22 @@ details[open].faq-item p {
     }
 
     /* Mobile specific for Code section */
-    .code-section {
-        height: auto !important;
-        min-height: auto !important;
-        display: block !important;
-    }
-
-    .code-layout {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0 !important;
-    }
-
     .code-intro-img {
-        position: static !important;
-        width: 100% !important;
-        margin-bottom: 30px !important;
-        text-align: center;
+        margin-bottom: 20px !important;
     }
 
     .code-intro-img .art-frame {
         max-width: 100% !important;
-        margin: 20px auto !important;
+        margin: 15px auto !important;
     }
-
-    .code-list {
-        width: 100% !important;
-        padding-right: 0 !important;
-        transform: none !important;
-        /* Force reset GSAP */
-        position: relative !important;
-        margin-top: 0 !important;
+    
+    .code-intro-img img {
+        max-height: 150px !important;
     }
 
     .code-item {
-        gap: 20px;
-        padding: 25px 0;
-        transform: none !important;
+        gap: 15px;
+        padding: 20px 0;
         flex-direction: row;
         /* Put number on the left */
         text-align: left;
