@@ -952,12 +952,37 @@ details[open].faq-item p {
         order: 1;
     }
 
+    #code .section-label,
+    #code .code-main-title {
+        position: sticky !important;
+        top: 0;
+        z-index: 20 !important;
+        background-color: var(--color-dark);
+        background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 8px 8px;
+        width: 100% !important;
+        margin-top: 0 !important;
+        padding-top: 100px; /* offset the section padding */
+    }
+
+    #code .section-label {
+        padding-top: 20px;
+        margin-bottom: 10px !important;
+    }
+
+    #code .code-main-title {
+        padding-bottom: 20px;
+        margin-bottom: 20px !important;
+    }
+
     .code-intro-img {
-        position: static !important;
+        position: relative !important;
+        z-index: 15 !important;
         width: 100% !important;
         margin-bottom: 20px !important;
         text-align: center;
         flex-shrink: 0;
+        background-color: var(--color-dark);
     }
 
     .code-intro-img .art-frame {
@@ -977,7 +1002,7 @@ details[open].faq-item p {
         min-height: 100vh !important;
         display: flex !important;
         flex-direction: column !important;
-        padding-top: 100px !important;
+        padding-top: 0 !important; /* handled by sticky headers now */
         padding-bottom: 20px !important;
         overflow: hidden !important;
     }

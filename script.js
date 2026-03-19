@@ -335,8 +335,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                                     gsap.set(list, { y });
                                     
-                                    // Dynamic mask: only fade top when actually scrolled
-                                    const fadeAmount = Math.min(80, self.progress * 400);
+                                    // Dynamic mask: delay top fade until intro is almost gone
+                                    let fadeAmount = 0;
+                                    if (self.progress > 0.15) { // Only start fading text after intro is mostly gone
+                                        const textProg = gsap.utils.normalize(0.15, 1, self.progress);
+                                        fadeAmount = Math.min(80, textProg * 600); 
+                                    }
+                                    
                                     const mask = `linear-gradient(to bottom, transparent 0px, black ${fadeAmount}px, black calc(100% - 80px), transparent 100%)`;
                                     gsap.set(section.querySelector('.code-text-content'), {
                                         webkitMaskImage: mask,
