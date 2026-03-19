@@ -1005,7 +1005,7 @@ details[open].faq-item p {
         position: relative !important;
         margin-top: 0 !important;
         overflow: visible !important;
-        transform: none !important;
+        transform: none; /* allow GSAP scroll */
     }
 }
 
