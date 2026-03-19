@@ -952,37 +952,38 @@ details[open].faq-item p {
         order: 1;
     }
 
+    /* Mobile Sticky Wrapper for Headers and Intro */
     #code .section-label,
-    #code .code-main-title {
-        position: sticky !important;
-        top: 0;
-        z-index: 20 !important;
+    #code .code-main-title,
+    .code-intro-img {
         background-color: var(--color-dark);
         background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         background-size: 8px 8px;
         width: 100% !important;
-        margin-top: 0 !important;
-        padding-top: 100px; /* offset the section padding */
+        margin: 0 !important;
     }
 
     #code .section-label {
+        position: sticky !important;
+        top: 0;
+        z-index: 30 !important;
         padding-top: 20px;
-        margin-bottom: 10px !important;
+        padding-bottom: 5px;
     }
 
     #code .code-main-title {
+        position: sticky !important;
+        top: 50px; /* offset by section label approx height */
+        z-index: 25 !important;
         padding-bottom: 20px;
-        margin-bottom: 20px !important;
     }
 
     .code-intro-img {
         position: relative !important;
-        z-index: 15 !important;
-        width: 100% !important;
-        margin-bottom: 20px !important;
+        z-index: 20 !important;
+        padding-bottom: 20px;
         text-align: center;
         flex-shrink: 0;
-        background-color: var(--color-dark);
     }
 
     .code-intro-img .art-frame {
