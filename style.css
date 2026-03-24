@@ -1409,11 +1409,11 @@ details[open].faq-item p {
         left: 0;
     }
     html {
-        scroll-padding-top: 110px !important;
+        scroll-padding-top: 90px !important;
     }
 
     .strict-section {
-        padding: 120px 0 60px 0 !important;
+        padding: 90px 0 60px 0 !important;
     }
 
     .legend-layout, .director-layout, .code-layout {
