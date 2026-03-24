@@ -1039,7 +1039,7 @@ details[open].faq-item p {
     #code .section-label,
     #code .code-main-title {
         width: 100% !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 10px !important;
     }
 
     #code .section-label {
@@ -1058,10 +1058,10 @@ details[open].faq-item p {
     .code-intro-img {
         position: relative !important;
         z-index: 20 !important;
-        padding-bottom: 30px !important;
+        padding-bottom: 10px !important;
         text-align: center;
         flex-shrink: 0;
-        margin-bottom: 60px !important;
+        margin-bottom: 20px !important;
     }
 
     .code-intro-img .art-frame {
@@ -1081,7 +1081,7 @@ details[open].faq-item p {
         min-height: 100vh !important;
         display: flex !important;
         flex-direction: column !important;
-        padding-top: 100px !important; 
+        padding-top: 40px !important; 
         padding-bottom: 60px !important;
         overflow: visible !important;
     }
