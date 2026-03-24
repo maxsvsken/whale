@@ -156,12 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < text.length; i++) {
             let char = text[i];
             let span = document.createElement('span');
-            span.className = 'char';
+            span.className = 'stagger-char';
             span.innerHTML = char === ' ' ? '&nbsp;' : char;
             title.appendChild(span);
         }
 
-        const chars = title.querySelectorAll('.char');
+        const chars = title.querySelectorAll('.stagger-char');
         
         gsap.from(chars, {
             scrollTrigger: {

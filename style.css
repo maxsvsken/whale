@@ -398,7 +398,7 @@ body {
     letter-spacing: 0.02em;
 }
 
-.stagger-text .char {
+.stagger-char {
     display: inline-block;
     will-change: transform, opacity;
 }
