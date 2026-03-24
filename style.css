@@ -100,15 +100,14 @@ body {
 /* Backgrounds & Unique Pop-Art Patterns */
 .hero {
     position: relative;
-    overflow: visible;
-    /* Changed from hidden to allow speech bubble poking out */
+    overflow: hidden;
     background-color: var(--color-white);
     min-height: 100vh;
     min-height: 100dvh;
-    /* Modern browsers */
     display: flex;
-    align-items: center;
-    -webkit-display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px;
 }
 
 .hero::before {
@@ -180,7 +179,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* Custom Speech Bubble */
@@ -233,6 +232,59 @@ body {
     display: block;
     width: 0;
     z-index: 1;
+}
+
+/* Hero Marquee */
+.hero-marquee-container {
+    position: relative;
+    margin-top: 5px;
+    width: 100%;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 15px 0;
+    overflow: hidden;
+    z-index: 10;
+    border-top: 2px solid var(--color-accent);
+    display: flex;
+}
+
+.hero-marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee-scroll 50s linear infinite;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-marquee:hover {
+    animation-play-state: paused;
+}
+
+.hero-marquee span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.hero-marquee span::after {
+    content: "•";
+    display: inline-block;
+    color: var(--color-accent);
+    margin: 0 40px;
+    font-size: 2rem;
+    vertical-align: middle;
+    line-height: 0;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* 01 Legend Section - Pop-Art Halftone Dots Background */
@@ -490,9 +542,9 @@ body {
 /* ART FRAMES - The Lichtenstein Accents */
 .art-frame {
     background: var(--color-white);
-    padding: 15px;
-    /* Neater spacing */
-    border: 1px solid var(--color-border);
+    padding: 12px;
+    /* Elegant white frame */
+    border: 1px solid rgba(0,0,0,0.05);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     /* Softer shadow */
     transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -509,7 +561,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    outline: 1px solid rgba(0, 0, 0, 0.05);
+    outline: none;
     border-radius: 0 !important;
 }
 
