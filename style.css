@@ -358,8 +358,8 @@ body {
     filter: grayscale(0%);
 }
 
-/* Expertise Marquee */
-.expertise-marquee-container {
+/* About Marquee */
+.about-marquee-container {
     position: relative;
     width: 100%;
     background-color: var(--color-black);
@@ -373,7 +373,7 @@ body {
     display: flex;
 }
 
-.expertise-marquee {
+.about-marquee {
     display: flex;
     white-space: nowrap;
     -webkit-animation: marquee-scroll 40s linear infinite;
@@ -385,17 +385,17 @@ body {
     letter-spacing: 0.05em;
 }
 
-.expertise-marquee:hover {
+.about-marquee:hover {
     -webkit-animation-play-state: paused;
     animation-play-state: paused;
 }
 
-.expertise-marquee span {
+.about-marquee span {
     display: inline-flex;
     align-items: center;
 }
 
-.expertise-marquee span::after {
+.about-marquee span::after {
     content: "•";
     display: inline-block;
     color: var(--color-accent);
