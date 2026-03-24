@@ -106,8 +106,18 @@ body {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
+}
+
+.hero-centering-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding-top: 100px;
+    width: 100%;
+}
+
+.hero-spacer {
+    flex: 1;
 }
 
 .hero::before {
