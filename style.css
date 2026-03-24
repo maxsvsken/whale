@@ -413,6 +413,12 @@ body {
     /* Classic pop-art dot size */
 }
 
+/* Ensure About content layout is at the top, while animated text centers in the rest */
+.legend-section .legend-layout {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
 /* 02 Director & Myths Sections - Blue Rays Pattern */
 .director-section,
 .myths-section {
