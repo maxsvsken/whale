@@ -1408,6 +1408,14 @@ details[open].faq-item p {
     .faq-item summary::after {
         left: 0;
     }
+    html {
+        scroll-padding-top: 110px !important;
+    }
+
+    .strict-section {
+        padding: 120px 0 60px 0 !important;
+    }
+
     .legend-layout, .director-layout, .code-layout {
         gap: 40px !important;
     }
