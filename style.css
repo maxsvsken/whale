@@ -273,8 +273,8 @@ body {
 .hero-marquee {
     display: flex;
     white-space: nowrap;
-    -webkit-animation: marquee-scroll 80s linear infinite;
-    animation: marquee-scroll 80s linear infinite;
+    -webkit-animation: marquee-scroll-reverse 80s linear infinite;
+    animation: marquee-scroll-reverse 80s linear infinite;
     font-family: var(--font-heading);
     font-size: 1.1rem;
     font-weight: 500;
@@ -321,6 +321,28 @@ body {
     100% {
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
+    }
+}
+
+@-webkit-keyframes marquee-scroll-reverse {
+    0% {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes marquee-scroll-reverse {
+    0% {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
     }
 }
 
