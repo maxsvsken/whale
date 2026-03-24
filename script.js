@@ -286,10 +286,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Special handling for the Code (rules) section - on all devices
             if (section.id === 'code') {
                 const list = section.querySelector('.code-list');
-                const intro = section.querySelector('.code-intro-img');
+                const sidebar = section.querySelector('.code-sidebar');
                 const title = section.querySelector('.code-main-title');
 
-                if (list && intro) {
+                if (list && sidebar) {
                     let mm = gsap.matchMedia();
 
                     mm.add("(min-width: 1321px)", () => {
@@ -303,11 +303,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                 scrub: 1,
                                 pinSpacing: true,
                                 onRefresh: () => {
-                                    gsap.set(intro, { clearProps: "all" });
+                                    gsap.set(sidebar, { clearProps: "all" });
                                     gsap.set(list, { clearProps: "all" });
                                     if (title) gsap.set(title, { clearProps: "all" });
                                     const listHeight = list.offsetHeight;
-                                    scrollDistance = Math.max(0, listHeight - window.innerHeight + 100);
+                                    // Increased buffer to 250px to ensure Rule 10 is fully visible
+                                    scrollDistance = Math.max(0, listHeight - window.innerHeight + 250);
                                 },
                                 onUpdate: (self) => {
                                     if (scrollDistance > 0) {
@@ -328,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     mm.add("(max-width: 1320px)", () => {
-                        gsap.set(intro, { clearProps: "all" });
+                        gsap.set(sidebar, { clearProps: "all" });
                         gsap.set(list, { clearProps: "all" });
                         if (title) gsap.set(title, { clearProps: "all" });
                         
