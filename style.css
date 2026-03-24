@@ -846,8 +846,17 @@ details[open].faq-item p {
     top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px; /* Space between Image and Title */
     text-align: center;
+}
+
+.code-main-title {
+    margin: 0 !important;
+    padding-top: 0;
+}
+
+.code-intro-img {
+    margin-bottom: 0 !important;
 }
 
 .code-text-content {
