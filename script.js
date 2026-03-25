@@ -210,16 +210,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const textsToAnimate = texts.slice(0, -1);
         const cardsToAnimate = cards.slice(0, -1);
 
-        // Calculate a generous scroll distance based on window height
-        // This ensures the user has enough 'room' to scroll through the collapse
-        const scrollDist = window.innerHeight * 1.5;
+        // More deliberate scroll distance for 3 cards
+        const scrollDist = window.innerHeight * 2;
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: section,
-                start: "top top", 
+                start: "top 70px", // Align with fixed navbar
                 end: `+=${scrollDist}`,
-                pin: container, // Pin the inner container
+                pin: container,
                 pinSpacing: true,
                 scrub: 1,
                 invalidateOnRefresh: true
@@ -230,20 +229,23 @@ document.addEventListener('DOMContentLoaded', () => {
             height: 0,
             opacity: 0,
             duration: 1,
-            stagger: 0.5,
+            stagger: 0.8,
             ease: "none"
         });
 
         tl.to(cardsToAnimate, {
-            opacity: 0.8,
+            opacity: 0.7, // slightly more transparent for better contrast
             duration: 1,
-            stagger: 0.5,
+            stagger: 0.8,
             ease: "none"
         }, "<");
+
+        // Force GSAP recalculate all markers/triggers
+        ScrollTrigger.refresh();
     }
 
-    // Delay initialization slightly to ensure offsetHeights are ready
-    setTimeout(initStackingAccordion, 100);
+    // Call it after all other initializations are settled
+    setTimeout(initStackingAccordion, 250);
 
     // --- Smooth Scroll for anchors ---
     const navAnchors = document.querySelectorAll('.nav-btn, .dot-btn, .logo, .dot-nav a');
