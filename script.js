@@ -263,64 +263,53 @@ document.addEventListener('DOMContentLoaded', () => {
             const href = this.getAttribute('href');
             if (!href) return;
 
-            // Специальная обработка для возврата на главную
-            const isHome = href === '#' || href === '#hero';
-
-            if (window.innerWidth <= 900) {
-                if (navLinks) {
-                    navLinks.classList.remove('nav-active');
-                    navLinks.style.display = '';
-                    const b = document.getElementById('burger');
-                    if (b) b.classList.remove('open');
-                    const n = document.querySelector('.navbar');
-                    if (n) n.classList.remove('menu-open');
-                }
-
-                if (isHome) {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    return;
-                }
-                return; // Нативный прыжок по якорю для остальных
-            }
-
-            // --- Логика GSAP для десктопа ниже ---
+            // --- Unified Smooth Scroll Logic ---
             e.preventDefault();
-            e.stopPropagation();
+            const isHome = href === '#' || href === '#hero';
+            
+            // Close mobile menu if open
+            if (navLinks && navLinks.classList.contains('nav-active')) {
+                navLinks.classList.remove('nav-active');
+                navLinks.style.display = '';
+                const b = document.getElementById('burger');
+                if (b) b.classList.remove('open');
+                const n = document.querySelector('.navbar');
+                if (n) n.classList.remove('menu-open');
+            }
 
             const targetId = isHome ? '#hero' : href;
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
+                // If it's home, we just go to top
                 if (isHome) {
-                    const heroContainer = targetElement.querySelector('.container');
-                    if (heroContainer) gsap.set(heroContainer, { opacity: 1, scale: 1, clearProps: "all" });
-                    gsap.to(window, { duration: 0, scrollTo: 0, ease: "none" });
+                    gsap.to(window, { duration: 1.2, scrollTo: 0, ease: "power2.inOut" });
                     return;
                 }
-                // If GSAP and ScrollTrigger are ready
+
                 if (window.gsap && window.ScrollTrigger) {
                     let triggers = ScrollTrigger.getAll();
+                    // Find if this section has a pin associated with its trigger
                     let st = triggers.find(t => t.trigger === targetElement && t.vars.pin);
 
                     if (st) {
-                        // For pinned sections, use st.start
+                        // For pinned sections, st.start is the exact wheel position where section hits its pin point
                         gsap.to(window, {
-                            duration: 0,
+                            duration: 1.2,
                             scrollTo: st.start,
-                            ease: "none"
+                            ease: "power2.inOut"
                         });
                     } else {
-                        // For other elements, use offsetTop
+                        // Standard section target
                         gsap.to(window, {
-                            duration: 0,
+                            duration: 1.2,
                             scrollTo: { y: targetElement.offsetTop, autoKill: false },
-                            ease: "none"
+                            ease: "power2.inOut"
                         });
                     }
                 } else {
-                    // Hard fallback if GSAP not loaded
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Fallback
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
             }
         });
