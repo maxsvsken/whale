@@ -329,9 +329,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (window.gsap && window.ScrollTrigger && window.gsap.to) {
                     let yPos = 0;
                     
-                    if (!isHome && targetElement.navTrigger) {
-                        // Natively calculated coordinate includes active pin-spacers above it
-                        yPos = targetElement.navTrigger.start;
+                    if (!isHome) {
+                        if (targetElement.navTrigger) {
+                            // Natively calculated coordinate includes active pin-spacers above it
+                            yPos = targetElement.navTrigger.start;
+                        } else {
+                            // Fallback for elements without a navTrigger (e.g. footer)
+                            yPos = targetElement.getBoundingClientRect().top + window.scrollY - 70;
+                        }
                     }
 
                     gsap.to(window, {
