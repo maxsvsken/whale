@@ -618,13 +618,14 @@ body {
 
 /* Sections General */
 .strict-section {
-    padding: 110px 0 140px 0; /* Header (70px) + Gap (40px) */
+    padding: 100px 0; /* Symmetrical padding for perfect centering */
     min-height: 100vh;
     min-height: 100dvh;
     display: flex;
     -webkit-display: flex;
     flex-direction: column;
     -webkit-flex-direction: column;
+    justify-content: center; /* Natural flex centering */
 }
 
 .strict-section>.container {
@@ -642,7 +643,7 @@ body {
 .section-title {
     font-size: 3.5rem;
     line-height: 1.1;
-    margin-bottom: 40px; /* Standard gap to text */
+    margin-bottom: 25px; /* Shorter gap between title and content */
 }
 
 .contact-title {
@@ -835,14 +836,14 @@ details[open].faq-item p {
 .director-layout .section-label,
 .code-layout .section-label {
     grid-column: 1 / -1;
-    margin-bottom: 40px; /* Standard gap to Image/Sidebar */
+    margin-bottom: 25px; /* Shorter gap to Image/Sidebar to match section-title */
 }
 
 .stats-strip {
     display: flex;
     gap: 60px;
-    margin-top: 50px;
-    padding-top: 50px;
+    margin-top: 30px;
+    padding-top: 30px;
     border-top: 1px solid var(--color-border);
 }
 
@@ -908,12 +909,8 @@ details[open].faq-item p {
 
 /* Code Layout */
 .code-section {
-    padding: 120px 0 60px 0 !important;
-    height: 100vh !important;
-    min-height: 100vh !important;
-    display: flex !important;
-    align-items: flex-start !important;
-    overflow: hidden !important;
+    position: relative;
+    z-index: 1;
 }
 
 .code-layout {
@@ -1004,7 +1001,7 @@ details[open].faq-item p {
 
 /* Footer Layout */
 .site-footer {
-    padding: 100px 0 40px 0;
+    padding: 80px 0 60px 0;
 }
 
 .footer-layout {
@@ -1084,9 +1081,10 @@ details[open].faq-item p {
     }
 
     .hero {
-        padding-top: 140px;
-        /* Больше места под шапку */
-        align-items: flex-start;
+        padding: 80px 0 40px 0;
+        /* Balanced mobile space */
+        align-items: center;
+        justify-content: center;
         height: auto;
         min-height: 100vh;
     }
@@ -1732,8 +1730,8 @@ details[open].faq-item p {
     display: flex;
     flex-direction: column;
     gap: 0;
-    margin-top: 60px;
-    padding-bottom: 150px;
+    margin-top: 40px;
+    padding-bottom: 80px;
 }
 
 .stacking-accordion .strict-card {
