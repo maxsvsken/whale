@@ -1711,3 +1711,38 @@ details[open].faq-item p {
         text-align: center !important;
     }
 }
+
+/* --- Smooth Scroll Stacking Accordion --- */
+.cards-grid.stacking-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 40px;
+}
+
+.stacking-accordion .strict-card {
+    position: sticky;
+    top: 100px; /* Base sticky position */
+    background: var(--color-white);
+    margin-bottom: 30vh; /* Creates scrolling space between cards */
+    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.08); /* Shadow overlapping */
+    border-radius: 10px; /* Slight rounding for card layer effect */
+    border: 1px solid var(--color-border);
+    transform-origin: top center;
+    will-change: transform, opacity;
+}
+
+/* Offset tops to simulate a stacking deck of cards */
+.stacking-accordion .strict-card:nth-child(1) { top: 120px; z-index: 10; }
+.stacking-accordion .strict-card:nth-child(2) { top: 150px; z-index: 11; }
+.stacking-accordion .strict-card:nth-child(3) { top: 180px; z-index: 12; margin-bottom: 0px; }
+
+/* Mobile adjustments for sticking cards */
+@media (max-width: 900px) {
+    .stacking-accordion .strict-card {
+        margin-bottom: 15vh; /* less scroll space on mobile */
+    }
+    .stacking-accordion .strict-card:nth-child(1) { top: 90px; }
+    .stacking-accordion .strict-card:nth-child(2) { top: 110px; }
+    .stacking-accordion .strict-card:nth-child(3) { top: 130px; }
+}

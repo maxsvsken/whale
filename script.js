@@ -192,6 +192,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initAboutAnimation();
 
+    // --- Smooth Scroll Stacking Accordion ---
+    function initStackingAccordion() {
+        const cards = gsap.utils.toArray('.stacking-accordion .strict-card');
+        if (!cards.length) return;
+
+        cards.forEach((card, i) => {
+            if (i < cards.length - 1) { // Apply to all except the very last card
+                const nextCard = cards[i + 1];
+                
+                ScrollTrigger.create({
+                    trigger: nextCard,
+                    start: "top 80%", // Start shrinking when the next card comes into view
+                    end: "top 25%",   // End shrinking when the next card is near the top
+                    scrub: true,
+                    animation: gsap.to(card, {
+                        scale: 0.93,
+                        opacity: 0.5,
+                        transformOrigin: "top center",
+                        ease: "none"
+                    })
+                });
+            }
+        });
+    }
+
+    initStackingAccordion();
+
     // --- Smooth Scroll for anchors ---
     const navAnchors = document.querySelectorAll('.nav-btn, .dot-btn, .logo, .dot-nav a');
 
