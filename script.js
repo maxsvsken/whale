@@ -328,17 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (window.gsap && window.ScrollTrigger && window.gsap.to) {
                     let yPos = 0;
                     
-                    if (targetId === '#contact') {
-                        // For the final footer section, direct element targeting is more robust
-                        // as it bypasses coordinate shifts from the long pinned sections above.
-                        gsap.to(window, {
-                            duration: 0.8,
-                            scrollTo: { y: targetElement, offsetY: 70 },
-                            ease: "power2.out",
-                            overwrite: "auto"
-                        });
-                        return;
-                    } else if (!isHome && targetElement.navTrigger) {
+                    if (!isHome && targetElement.navTrigger) {
                         // Natively calculated coordinate includes active pin-spacers above it
                         yPos = targetElement.navTrigger.start;
                     }
@@ -406,8 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-        // Include the footer in the scroll tracking because it contains the Contact anchor
-        const sections = document.querySelectorAll('section, footer#contact');
+        const sections = document.querySelectorAll('section');
         const dotBtns = document.querySelectorAll('.dot-btn');
 
         const updateDot = (index) => {
