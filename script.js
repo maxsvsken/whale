@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let mm = gsap.matchMedia();
 
         mm.add("(min-width: 901px)", () => {
-            const totalScrollDistance = window.innerHeight * cards.length; 
+            const totalScrollDistance = window.innerHeight * 1.5; 
             
             const tl = gsap.timeline({
                 scrollTrigger: {
