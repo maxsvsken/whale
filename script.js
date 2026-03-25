@@ -236,16 +236,16 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.set(cards, { clearProps: "all" });
         gsap.set(texts, { clearProps: "all" });
 
-        // Collapse all EXCEPT the last card
-        const textsToAnimate = texts.slice(0, -1);
-        const cardsToAnimate = cards.slice(0, -1);
+        // Collapse ALL cards, including the last one
+        const textsToAnimate = texts;
+        const cardsToAnimate = cards;
 
         // Use GSAP matchMedia to only stack on desktop, keeping mobile flow natural
         let mm = gsap.matchMedia();
 
         mm.add("(min-width: 901px)", () => {
-            const totalScrollDistance = window.innerHeight * 2; 
-
+            const totalScrollDistance = window.innerHeight * cards.length; 
+            
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: section,
