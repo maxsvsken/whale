@@ -1749,9 +1749,23 @@ details[open].faq-item p {
 }
 
 @media (max-width: 900px) {
+    .cards-grid.stacking-accordion {
+        gap: 25px !important;
+        padding-bottom: 50px !important;
+        margin-top: 30px !important;
+    }
+
     .stacking-accordion .strict-card {
         border-radius: 15px;
-        padding: 30px !important;
+        padding: 25px !important;
+        margin-bottom: 0 !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important; /* Standard shadow for mobile */
+        overflow: visible !important; /* Ensure nothing is cut off */
+    }
+
+    .card-collapse-content {
+        height: auto !important;
+        overflow: visible !important;
     }
 }
 
