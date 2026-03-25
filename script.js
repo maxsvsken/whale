@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Smooth Scrolling (Lenis) ---
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            smoothWheel: true,
+            touchMultiplier: 2,
+            // Keep native mobile touch scrolling for performance and natural feel
+            smoothTouch: false,
+        });
+
+        // Sync Lenis with GSAP ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
+
+        // Add Lenis's requestAnimationFrame (raf) to GSAP's ticker
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+
+        // Disable GSAP's lag smoothing, required when syncing with an external raf mechanism
+        gsap.ticker.lagSmoothing(0);
+    }
 
     // --- Burger Menu Logic ---
     const burger = document.getElementById('burger');
@@ -11,6 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('nav-active');
             burger.classList.toggle('open');
             if (navbar) navbar.classList.toggle('menu-open');
+            
+            // Prevent background scrolling when menu is open on mobile
+            if (navLinks.classList.contains('nav-active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
     }
 
@@ -278,6 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (b) b.classList.remove('open');
                 const n = document.querySelector('.navbar');
                 if (n) n.classList.remove('menu-open');
+                document.body.style.overflow = ''; // Unlock scroll
             }
 
             const targetId = isHome ? '#hero' : href;
