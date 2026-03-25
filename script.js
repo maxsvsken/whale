@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Smooth Scrolling (Lenis) ---
     if (typeof Lenis !== 'undefined') {
         const lenis = new Lenis({
-            duration: 1.2,
+            duration: 1.6, // Increased for a more 'premium' felt smoothness
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
             smoothWheel: true,
+            wheelMultiplier: 1.1, // Slightly more responsive
             touchMultiplier: 2,
             // Keep native mobile touch scrolling for performance and natural feel
             smoothTouch: false,
