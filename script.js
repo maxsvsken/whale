@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let mm = gsap.matchMedia();
 
         mm.add("(min-width: 901px)", () => {
-            const totalScrollDistance = window.innerHeight * 1.5; 
+            const totalScrollDistance = window.innerHeight * 2.5; 
             
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -258,11 +258,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     invalidateOnRefresh: true
                 }
             });
-
             // Loop through each card for granular control
             textsToAnimate.forEach((text, i) => {
                 const card = cardsToAnimate[i];
                 
+                // If it's the LAST card, add a buffer to let the user 'view' the content
+                if (i === textsToAnimate.length - 1) {
+                    tl.to({}, { duration: 2 }); 
+                }
+
                 // Phase 1: Collapse the text
                 tl.to(text, {
                     height: 0,
