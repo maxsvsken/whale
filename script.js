@@ -550,7 +550,43 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        window.addEventListener('load', () => ScrollTrigger.refresh());
+        window.addEventListener('load', () => {
+            ScrollTrigger.refresh();
+            
+            // --- Global Section Snapping (Small stops at each section) ---
+            ScrollTrigger.create({
+                start: 0,
+                end: "max",
+                snap: {
+                    snapTo: (value) => {
+                        const totalHeight = ScrollTrigger.maxScroll(window);
+                        const scrollY = value * totalHeight;
+                        const threshold = 200; // Snap distance in pixels
+                        
+                        // Find if we are close to any section start
+                        for (let s of sections) {
+                            const target = (s.id === 'hero') ? 0 : (s.navTrigger ? s.navTrigger.start : 0);
+                            if (Math.abs(scrollY - target) < threshold) {
+                                return target / totalHeight;
+                            }
+                        }
+                        
+                        // Check footer
+                        if (footer) {
+                            const footerTarget = ScrollTrigger.maxScroll(window);
+                            if (Math.abs(scrollY - footerTarget) < threshold) {
+                                return 1;
+                            }
+                        }
+                        
+                        return value; // Don't snap if in the middle of a section
+                    },
+                    duration: { min: 0.4, max: 0.8 },
+                    delay: 0.1,
+                    ease: "power2.inOut"
+                }
+            });
+        });
     }
 
     // --- Contact Form Submission ---
