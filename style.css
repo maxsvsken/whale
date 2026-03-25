@@ -1713,7 +1713,7 @@ details[open].faq-item p {
     padding-bottom: 0 !important;
     min-height: auto !important;
     position: relative;
-    background-color: var(--color-grey-light);
+    background-color: #fff !important;
     z-index: 1;
 }
 
@@ -1725,10 +1725,10 @@ details[open].faq-item p {
     width: 100%;
     height: 100%;
     z-index: -1;
-    /* Layer 1: Halftone Dot Pattern */
-    background-image: radial-gradient(var(--color-accent) 1.5px, transparent 1.5px);
-    background-size: 24px 24px;
-    opacity: 0.05;
+    /* Layer 1: More visible Halftone Dot Pattern */
+    background-image: radial-gradient(var(--color-accent) 2px, transparent 0);
+    background-size: 32px 32px;
+    opacity: 0.15;
     pointer-events: none;
 }
 
