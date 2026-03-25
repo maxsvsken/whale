@@ -1713,36 +1713,55 @@ details[open].faq-item p {
 }
 
 /* --- Smooth Scroll Stacking Accordion --- */
+.projects-section {
+    display: block !important;
+    overflow: visible !important;
+    padding-bottom: 250px !important; /* Huge scroll space for stacking layers */
+    min-height: auto !important;
+}
+
+.projects-section .container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    max-width: 900px !important; /* Tighter layout for accordion cards */
+}
+
 .cards-grid.stacking-accordion {
     display: flex;
     flex-direction: column;
     gap: 0;
-    margin-top: 40px;
+    margin-top: 60px;
+    padding-top: 20px;
 }
 
 .stacking-accordion .strict-card {
     position: sticky;
-    top: 100px; /* Base sticky position */
-    background: var(--color-white);
-    margin-bottom: 30vh; /* Creates scrolling space between cards */
-    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.08); /* Shadow overlapping */
-    border-radius: 10px; /* Slight rounding for card layer effect */
+    top: 100px;
+    background: #fff;
+    margin-bottom: 250px; /* Space to scroll and see the layer effect */
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
     border: 1px solid var(--color-border);
     transform-origin: top center;
-    will-change: transform, opacity;
+    will-change: transform, opacity, filter;
+    z-index: 10;
+    transition: box-shadow 0.3s ease;
 }
 
-/* Offset tops to simulate a stacking deck of cards */
-.stacking-accordion .strict-card:nth-child(1) { top: 120px; z-index: 10; }
-.stacking-accordion .strict-card:nth-child(2) { top: 150px; z-index: 11; }
-.stacking-accordion .strict-card:nth-child(3) { top: 180px; z-index: 12; margin-bottom: 0px; }
+/* Offset tops to show card headers like tabs */
+.stacking-accordion .strict-card:nth-child(1) { top: 100px; z-index: 10; }
+.stacking-accordion .strict-card:nth-child(2) { top: 115px; z-index: 11; }
+.stacking-accordion .strict-card:nth-child(3) { top: 130px; z-index: 12; margin-bottom: 0px; }
 
-/* Mobile adjustments for sticking cards */
 @media (max-width: 900px) {
     .stacking-accordion .strict-card {
-        margin-bottom: 15vh; /* less scroll space on mobile */
+        margin-bottom: 120px;
+        border-radius: 20px;
+        padding: 30px !important;
     }
-    .stacking-accordion .strict-card:nth-child(1) { top: 90px; }
-    .stacking-accordion .strict-card:nth-child(2) { top: 110px; }
-    .stacking-accordion .strict-card:nth-child(3) { top: 130px; }
-}
+    .stacking-accordion .strict-card:nth-child(1) { top: 80px; }
+    .stacking-accordion .strict-card:nth-child(2) { top: 95px; }
+    .stacking-accordion .strict-card:nth-child(3) { top: 110px; }
+}
+
+

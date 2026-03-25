@@ -194,24 +194,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Smooth Scroll Stacking Accordion ---
     function initStackingAccordion() {
+        const grid = document.querySelector('.stacking-accordion');
         const cards = gsap.utils.toArray('.stacking-accordion .strict-card');
-        if (!cards.length) return;
+        if (!cards.length || !grid) return;
 
         cards.forEach((card, i) => {
-            if (i < cards.length - 1) { // Apply to all except the very last card
+            // Each card shrinks when the VERY NEXT card begins to overlap it
+            if (i < cards.length - 1) {
                 const nextCard = cards[i + 1];
                 
-                ScrollTrigger.create({
-                    trigger: nextCard,
-                    start: "top 80%", // Start shrinking when the next card comes into view
-                    end: "top 25%",   // End shrinking when the next card is near the top
-                    scrub: true,
-                    animation: gsap.to(card, {
-                        scale: 0.93,
-                        opacity: 0.5,
-                        transformOrigin: "top center",
-                        ease: "none"
-                    })
+                gsap.to(card, {
+                    scrollTrigger: {
+                        trigger: nextCard,
+                        start: "top bottom-=100px",
+                        end: "top 25%",
+                        scrub: true,
+                    },
+                    scale: 0.92,
+                    opacity: 0.5,
+                    filter: "blur(2px)",
+                    transformOrigin: "top center",
+                    ease: "none"
+                });
+            }
+
+            // Optional: for card 1, you can also add another shrinking step when card 3 comes
+            if (i === 0 && cards.length > 2) {
+                const thirdCard = cards[2];
+                gsap.to(card, {
+                    scrollTrigger: {
+                        trigger: thirdCard,
+                        start: "top bottom-=100px",
+                        end: "top 25%",
+                        scrub: true,
+                    },
+                    scale: 0.85,
+                    opacity: 0.3,
+                    filter: "blur(4px)",
                 });
             }
         });
