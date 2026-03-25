@@ -551,32 +551,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         window.addEventListener('load', () => {
-            ScrollTrigger.refresh();
-            
-            // --- Global Section Snapping (Tactile stops at each section) ---
-            const getSnapPoints = () => {
-                const total = ScrollTrigger.maxScroll(window);
-                if (total <= 0) return [0];
+            // Give extra time for all images and GSAP pins to settle
+            setTimeout(() => {
+                ScrollTrigger.refresh();
                 
-                let points = Array.from(sections).map(s => {
-                    const target = (s.id === 'hero') ? 0 : (s.navTrigger ? s.navTrigger.start : 0);
-                    return target / total;
-                });
-                
-                if (footer) points.push(1);
-                return points;
-            };
+                // Allow GSAP to handle scroll threads for better snapping
+                ScrollTrigger.normalizeScroll(true);
 
-            ScrollTrigger.create({
-                start: 0,
-                end: "max",
-                snap: {
-                    snapTo: getSnapPoints(),
-                    duration: { min: 0.3, max: 0.7 },
-                    delay: 0.05, // Faster response
-                    ease: "power1.inOut"
-                }
-            });
+                // --- Global Section Snapping (Tactile stops at each section) ---
+                const snapPoints = [];
+                
+                const calculateSnapPoints = () => {
+                    snapPoints.length = 0;
+                    const total = ScrollTrigger.maxScroll(window);
+                    if (total <= 0) return;
+                    
+                    sections.forEach(s => {
+                        const target = (s.id === 'hero') ? 0 : (s.navTrigger ? s.navTrigger.start : 0);
+                        snapPoints.push(target / total);
+                    });
+                    if (footer) snapPoints.push(1);
+                };
+
+                calculateSnapPoints();
+                ScrollTrigger.addEventListener("refresh", calculateSnapPoints);
+
+                ScrollTrigger.create({
+                    start: 0,
+                    end: "max",
+                    snap: {
+                        snapTo: (value) => {
+                            if (!snapPoints.length) return value;
+                            // Find the closest point in our array
+                            return snapPoints.reduce((prev, curr) => 
+                                Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev
+                            );
+                        },
+                        duration: { min: 0.2, max: 0.6 },
+                        delay: 0.1,
+                        ease: "power1.inOut"
+                    }
+                });
+            }, 500);
         });
     }
 
