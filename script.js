@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Keep native mobile touch scrolling for performance and natural feel
             smoothTouch: false,
         });
+        window.lenis = lenis;
 
         // Sync Lenis with GSAP ScrollTrigger
         lenis.on('scroll', ScrollTrigger.update);
@@ -551,45 +552,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         window.addEventListener('load', () => {
-            // Give extra time for all images and GSAP pins to settle
             setTimeout(() => {
                 ScrollTrigger.refresh();
                 
-                // Allow GSAP to handle scroll threads for better snapping
-                ScrollTrigger.normalizeScroll(true);
-
-                // --- Global Section Snapping (Tactile stops at each section) ---
-                const snapPoints = [];
-                
-                const calculateSnapPoints = () => {
-                    snapPoints.length = 0;
-                    const total = ScrollTrigger.maxScroll(window);
-                    if (total <= 0) return;
-                    
-                    sections.forEach(s => {
-                        const target = (s.id === 'hero') ? 0 : (s.navTrigger ? s.navTrigger.start : 0);
-                        snapPoints.push(target / total);
-                    });
-                    if (footer) snapPoints.push(1);
-                };
-
-                calculateSnapPoints();
-                ScrollTrigger.addEventListener("refresh", calculateSnapPoints);
-
+                // --- Manual Robust Snapping for Lenis ---
                 ScrollTrigger.create({
                     start: 0,
                     end: "max",
-                    snap: {
-                        snapTo: (value) => {
-                            if (!snapPoints.length) return value;
-                            // Find the closest point in our array
-                            return snapPoints.reduce((prev, curr) => 
-                                Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev
-                            );
-                        },
-                        duration: { min: 0.2, max: 0.6 },
-                        delay: 0.1,
-                        ease: "power1.inOut"
+                    onScrollEnd: (self) => {
+                        const scrollY = window.scrollY || window.pageYOffset;
+                        const threshold = 250;
+                        let targetY = -1;
+                        let minDiff = threshold;
+
+                        sections.forEach(s => {
+                            const sectionTop = (s.id === 'hero') ? 0 : (s.navTrigger ? s.navTrigger.start : 0);
+                            const diff = Math.abs(scrollY - sectionTop);
+                            
+                            if (diff < minDiff) {
+                                minDiff = diff;
+                                targetY = sectionTop;
+                            }
+                        });
+
+                        // If we found a close section and it's not the current position
+                        if (targetY !== -1 && Math.abs(scrollY - targetY) > 5) {
+                            if (window.lenis) {
+                                window.lenis.scrollTo(targetY, {
+                                    duration: 0.8,
+                                    easing: (t) => Math.min(1, 1.001 * Math.pow(2, -10 * t)),
+                                    lock: false
+                                });
+                            }
+                        }
                     }
                 });
             }, 500);
