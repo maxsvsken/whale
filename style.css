@@ -2175,10 +2175,6 @@ details[open].faq-item p {
     background-color: var(--color-white) !important;
     min-height: auto !important;
     padding: 120px 0 !important;
-    background-image: radial-gradient(#d4d4d4 35%, transparent 35%);
-    background-size: 18px 18px;
-    background-position: center center;
-    background-repeat: repeat;
 }
 
 .together-section > .container {
