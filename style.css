@@ -2087,8 +2087,14 @@ details[open].faq-item p {
         font-size: 1.8rem !important;
     }
     .faq-item summary {
-        font-size: 1.1rem;
-        padding: 15px 0;
+        font-size: 1rem;
+        padding: 15px 0 15px 30px !important;
+        line-height: 1.4;
+    }
+    .faq-item summary::before,
+    .faq-item summary::after {
+        width: 14px;
+        height: 2px;
     }
     .faq-item p {
         font-size: 1rem !important;
