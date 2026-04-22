@@ -2099,6 +2099,15 @@ details[open].faq-item p {
     .cards-grid {
         grid-template-columns: 1fr !important;
     }
+    .legend-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    .legend-art-container {
+        order: -1 !important;
+        margin-bottom: 20px !important;
+    }
 }
 
 /* Specific centering for About text on mobile */
