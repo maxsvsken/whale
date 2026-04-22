@@ -2053,6 +2053,7 @@ details[open].faq-item p {
     .stats-strip {
         flex-direction: column;
         gap: 30px;
+        text-align: center;
     }
     .modal-content {
         margin: 20% auto;
@@ -2241,15 +2242,18 @@ details[open].faq-item p {
         grid-template-columns: 1fr;
     }
     
-    .together-list li.full-width-item {
-        justify-content: flex-start;
-        text-align: left;
-    }
-
     .together-list li {
         font-size: 1.1rem;
         padding: 20px;
         gap: 15px;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .together-list li.full-width-item {
+        justify-content: center;
+        text-align: center;
     }
     .together-list li::before {
         width: 30px;
