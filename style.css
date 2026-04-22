@@ -2113,8 +2113,12 @@ details[open].faq-item p {
     .legend-content, 
     .legend-content .section-title,
     .legend-content .section-desc,
-    .legend-content .accent-text-block {
+    .legend-content .accent-text-block,
+    .legend-layout .section-label,
+    .section-label {
         text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
 
