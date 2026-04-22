@@ -2184,22 +2184,29 @@ details[open].faq-item p {
 .together-list {
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
 .together-list li {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-black);
-    padding: 25px 35px;
+    padding: 20px 25px;
     background: #fff;
     border: 1px solid var(--color-border);
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
     transition: all 0.3s ease;
     border-radius: 12px;
+}
+
+.together-list li.full-width-item {
+    grid-column: 1 / -1;
+    justify-content: center;
+    text-align: center;
+    background: #fdfdfd;
 }
 
 .together-list li::before {
@@ -2207,8 +2214,8 @@ details[open].faq-item p {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     background: var(--color-accent);
     color: #fff;
     border-radius: 50%;
@@ -2218,11 +2225,20 @@ details[open].faq-item p {
 
 .together-list li:hover {
     border-color: var(--color-accent);
-    transform: translateX(10px);
+    transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 @media (max-width: 768px) {
+    .together-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .together-list li.full-width-item {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
     .together-list li {
         font-size: 1.1rem;
         padding: 20px;
