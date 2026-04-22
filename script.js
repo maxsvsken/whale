@@ -548,12 +548,15 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Только для обычных длинных секций делаем fade-out, мифы и руководство не трогаем
                 if (container && section.id !== 'myths' && section.id !== 'director' && section.id !== 'code' && section.id !== 'projects') {
+                    // Adjust fade-out start for mobile to prevent early disappearance
+                    const fadeStart = window.innerWidth < 768 ? "bottom 100%" : "bottom 80%";
+                    
                     gsap.to(container, {
                         opacity: 0,
                         scale: 0.9,
                         scrollTrigger: {
                             trigger: section,
-                            start: "bottom 80%",
+                            start: fadeStart,
                             end: "bottom top",
                             scrub: 1
                         }
