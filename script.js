@@ -588,15 +588,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (togetherCards.length) {
             gsap.from(togetherCards, {
                 scrollTrigger: {
-                    trigger: '.together-list-wrapper',
-                    start: 'top 90%', // Trigger when the top of the wrapper is 90% down the viewport
+                    trigger: '#together',
+                    start: 'top 85%', // Trigger as soon as the section is well into view
                     toggleActions: 'play none none none'
                 },
                 x: (i) => i % 2 === 0 ? -100 : 100,
                 opacity: 0,
-                duration: 0.6,
+                duration: 0.8,
                 stagger: 0.15,
-                ease: 'power3.out'
+                ease: 'power3.out',
+                clearProps: 'all' // Ensures inline transforms are removed so CSS hover works
             });
         }
 
