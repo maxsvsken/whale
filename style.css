@@ -1998,6 +1998,9 @@ details[open].faq-item p {
         flex-direction: column;
         gap: 10px;
     }
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 /* Specific centering for About text on mobile */
