@@ -1308,6 +1308,7 @@ details[open].faq-item p {
 /* --- Audience Section --- */
 .audience-section {
     background-color: var(--color-black) !important;
+    min-height: auto !important;
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px) !important;
@@ -2172,6 +2173,7 @@ details[open].faq-item p {
 /* --- Together Section --- */
 .together-section {
     background-color: var(--color-white) !important;
+    min-height: auto !important;
 }
 
 .together-list-wrapper {
