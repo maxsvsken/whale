@@ -2177,7 +2177,7 @@ details[open].faq-item p {
 }
 
 .together-list-wrapper {
-    max-width: 900px;
+    max-width: 100%;
     margin: 60px auto 0 auto;
 }
 
