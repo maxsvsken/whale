@@ -2174,6 +2174,12 @@ details[open].faq-item p {
 .together-section {
     background-color: var(--color-white) !important;
     min-height: auto !important;
+    background-image: 
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 15%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%),
+        radial-gradient(#d4d4d4 35%, transparent 35%);
+    background-size: 100% 100%, 18px 18px;
+    background-position: center center, center center;
+    background-repeat: no-repeat, repeat;
 }
 
 .together-list-wrapper {
