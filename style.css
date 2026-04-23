@@ -1229,13 +1229,17 @@ details[open].faq-item p {
 
 /* Ensure visibility in dark textured sections */
 .ocean-bg-texture-dark .section-title,
-.ocean-bg-texture-dark .section-label,
 .ocean-bg-texture-dark .footer-bottom-info a,
 .ocean-bg-texture-dark .footer-contact-group p,
 .ocean-bg-texture-dark .footer-contact-group span,
 .ocean-bg-texture-dark .faq-item summary,
 .ocean-bg-texture-dark .faq-item p {
     color: var(--color-white) !important;
+}
+
+.ocean-bg-texture-dark .section-label {
+    color: var(--color-white) !important;
+    opacity: 0.7 !important;
 }
 
 .ocean-bg-texture-dark .faq-item summary:hover {
@@ -2482,7 +2486,10 @@ details[open].faq-item p {
 }
 
 .ocean-bg-bw .trust-logos img {
-    filter: invert(1) brightness(3) !important; /* Invert and high brightness for visibility */
+    filter: grayscale(1) invert(1) brightness(3) !important; 
+    max-height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
 }
 
 .projects-section .card-num,
