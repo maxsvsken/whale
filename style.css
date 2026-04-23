@@ -1114,16 +1114,12 @@ details[open].faq-item p {
 
 
 .stats-strip {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: stretch !important;
-    flex-wrap: nowrap !important;
-    gap: 20px !important;
-    margin-top: 60px;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 30px !important;
+    margin-top: 80px;
     padding-top: 60px;
-    border-top: 1px solid var(--color-border);
-    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     grid-column: 1 / -1;
     width: 100%;
 }
@@ -1133,10 +1129,10 @@ details[open].faq-item p {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    flex: 0 1 280px !important;
-    min-width: 150px;
+    width: 100% !important;
     aspect-ratio: 1 / 1 !important;
-    transition: transform 0.3s ease;
+    padding: 20px !important;
+    transition: all 0.3s ease;
 }
 
 .stat-box:hover {
@@ -2056,21 +2052,20 @@ details[open].faq-item p {
     }
 
     .stats-strip {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 40px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
         margin-top: 40px !important;
         padding-top: 40px !important;
     }
 
     .stat-val {
-        font-size: 3.5rem !important;
+        font-size: 2.8rem !important;
     }
 
     .stat-box {
         width: 100% !important;
-        flex: none !important;
-        aspect-ratio: auto !important;
+        aspect-ratio: 1 / 1 !important;
+        padding: 10px !important;
     }
 
     .footer-info {
