@@ -759,7 +759,7 @@ body {
 .dot-nav {
     position: fixed;
     top: 50%;
-    left: 40px;
+    right: 40px;
     transform: translateY(-50%);
     z-index: 1000;
 }
@@ -2050,8 +2050,9 @@ details[open].faq-item p {
         display: none;
         position: absolute;
         top: 100%;
-        left: 0;
-        width: 100%;
+        right: 0;
+        left: auto;
+        width: 280px;
         max-height: calc(100vh - 80px); /* Better height constraint */
         overflow-y: auto;
         background: rgba(13, 18, 33, 0.98); /* Solid dark background */
