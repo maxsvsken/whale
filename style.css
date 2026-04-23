@@ -1064,23 +1064,22 @@ details[open].faq-item p {
 
 /* Legend & Director Layout */
 .legend-layout {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 80px !important;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
-    text-align: left !important;
+    text-align: center !important;
 }
 
 .legend-content-wrapper {
     width: 100%;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
+    margin-bottom: 60px !important;
+    padding-top: 40px !important;
 }
 
 .legend-text-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 
 .legend-text-grid p {
@@ -1159,6 +1158,8 @@ details[open].faq-item p {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px !important;
     width: 100%;
+    max-width: 800px;
+    margin: 40px auto 0;
 }
 
 .stat-box {
