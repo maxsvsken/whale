@@ -1190,10 +1190,17 @@ details[open].faq-item p {
 
 /* Ensure visibility in dark textured sections */
 .ocean-bg-texture-dark .section-title,
+.ocean-bg-texture-dark .section-label,
 .ocean-bg-texture-dark .footer-bottom-info a,
 .ocean-bg-texture-dark .footer-contact-group p,
-.ocean-bg-texture-dark .footer-contact-group span {
+.ocean-bg-texture-dark .footer-contact-group span,
+.ocean-bg-texture-dark .faq-item summary,
+.ocean-bg-texture-dark .faq-item p {
     color: var(--color-white) !important;
+}
+
+.ocean-bg-texture-dark .faq-item summary:hover {
+    color: var(--color-accent) !important;
 }
 
 .ocean-bg-texture-dark input, 
