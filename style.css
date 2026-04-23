@@ -1045,11 +1045,10 @@ details[open].faq-item p {
 
 /* Legend & Director Layout */
 .legend-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    align-items: center;
-    text-align: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
 }
 
 .director-layout {
