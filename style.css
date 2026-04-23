@@ -2415,7 +2415,7 @@ details[open].faq-item p {
 }
 
 .ocean-bg-bw .trust-logos img {
-    filter: grayscale(1) brightness(2) !important; /* Make logos white/bright */
+    filter: invert(1) brightness(3) !important; /* Invert and high brightness for visibility */
 }
 
 .projects-section .card-num,
