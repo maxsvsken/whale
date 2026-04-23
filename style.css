@@ -40,7 +40,7 @@ html {
 body {
     font-family: var(--font-text);
     color: var(--color-black);
-    background-color: var(--primary-dark);
+    background-color: #05070a; /* Darker fallback */
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -48,8 +48,8 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-body::before {
-    content: '';
+/* Dedicated Background Layers for better mobile compatibility */
+.site-bg-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -57,19 +57,32 @@ body::before {
     bottom: 0;
     width: 100%;
     height: 100%;
-    /* Combine gradient overlay and whale image for cross-browser fixed background support */
-    background-image: linear-gradient(135deg, rgba(28, 37, 65, 0.4) 0%, rgba(11, 19, 43, 0.4) 100%),
-                      url('images/concept1.6BW.png');
+    background: linear-gradient(135deg, rgba(20, 26, 45, 0.6) 0%, rgba(5, 7, 15, 0.8) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.site-bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/concept1.6BW.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: -2;
     pointer-events: none;
-    /* Extra safeguard for older mobile browsers */
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    will-change: transform;
+    /* Safeguards for Safari iOS */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
+
+/* Removed body::before as we use dedicated divs now */
 
 /* Typography Utilities */
 .tracking-tight {
