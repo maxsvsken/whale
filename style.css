@@ -1072,21 +1072,14 @@ details[open].faq-item p {
 
 .legend-content-wrapper {
     width: 100%;
-    margin-bottom: 60px;
-    padding-top: 40px;
-}
-
-.legend-content-wrapper .section-title {
-    color: var(--color-white) !important;
-    font-size: 3.2rem;
-    margin-bottom: 50px;
-    line-height: 1.1;
+    margin-bottom: 30px;
+    padding-top: 20px;
 }
 
 .legend-text-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 40px;
 }
 
 .legend-text-grid p {
@@ -1163,9 +1156,9 @@ details[open].faq-item p {
 .stats-strip {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 30px !important;
-    margin-top: 80px;
-    padding-top: 60px;
+    gap: 20px !important;
+    margin-top: 40px;
+    padding-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     grid-column: 1 / -1;
     width: 100%;
@@ -1178,7 +1171,7 @@ details[open].faq-item p {
     justify-content: center !important;
     width: 100% !important;
     aspect-ratio: 1 / 1 !important;
-    padding: 20px !important;
+    padding: 10px !important;
     transition: all 0.3s ease;
 }
 
@@ -1329,7 +1322,7 @@ details[open].faq-item p {
 }
 
 .stat-val {
-    font-size: 5.5rem;
+    font-size: 3.8rem;
     font-family: var(--font-heading);
     line-height: 1;
     color: var(--color-white) !important;
@@ -1338,15 +1331,16 @@ details[open].faq-item p {
 
 .liquid-glass .stat-icon {
     color: var(--color-white) !important;
+    margin-bottom: 12px;
 }
 
 .stat-name {
-    margin-top: 15px;
-    font-size: 1rem;
-    line-height: 1.4;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-grey-dark);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Today Section Layout */
