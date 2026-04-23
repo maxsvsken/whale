@@ -1159,7 +1159,7 @@ details[open].faq-item p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(245, 247, 250, 0.9); /* Light overlay */
+    background: rgba(245, 247, 250, 0.4); /* Reduced opacity for better texture visibility */
     z-index: 0;
 }
 
