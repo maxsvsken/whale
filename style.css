@@ -822,8 +822,6 @@ body::before {
 }
 
 .accent-text-block {
-    border-left: 4px solid var(--color-accent);
-    padding-left: 25px;
     margin-bottom: 40px;
 }
 
