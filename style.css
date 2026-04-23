@@ -1240,6 +1240,31 @@ details[open].faq-item p {
     z-index: 1;
 }
 
+/* Liquid Glass (Glassmorphism) Style */
+.liquid-glass {
+    background: rgba(255, 255, 255, 0.07) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+
+.liquid-glass:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-5px);
+}
+
+.liquid-glass, 
+.liquid-glass p, 
+.liquid-glass span, 
+.liquid-glass h3, 
+.liquid-glass h4, 
+.liquid-glass li {
+    color: var(--color-white) !important;
+}
+
 .stat-icon {
     width: 42px;
     height: 42px;
