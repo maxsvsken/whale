@@ -1096,11 +1096,12 @@ details[open].faq-item p {
 
 
 .stats-strip {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 40px 30px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    flex-wrap: nowrap !important;
+    gap: 20px !important;
     margin-top: 60px;
     padding-top: 60px;
     border-top: 1px solid var(--color-border);
@@ -1110,13 +1111,13 @@ details[open].faq-item p {
 }
 
 .stat-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    min-width: 200px;
-    aspect-ratio: 1 / 1;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 1 280px !important;
+    min-width: 150px;
+    aspect-ratio: 1 / 1 !important;
     transition: transform 0.3s ease;
 }
 
@@ -2185,12 +2186,7 @@ details[open].faq-item p {
 }
 
 @media (max-width: 768px) {
-    .stats-strip {
-        flex-direction: column;
-        gap: 30px;
-        text-align: center;
-        align-items: center !important;
-    }
+
     .modal-content {
         margin: 20% auto;
         padding: 25px;
@@ -2268,9 +2264,7 @@ details[open].faq-item p {
         margin-left: auto !important;
         margin-right: auto !important;
     }
-    .stats-strip {
-        order: 2 !important;
-    }
+
     .director-layout {
         display: flex !important;
         flex-direction: column !important;
