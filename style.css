@@ -1216,6 +1216,30 @@ details[open].faq-item p {
     color: rgba(255, 255, 255, 0.5) !important;
 }
 
+.ocean-bg-bw {
+    background-image: url('images/audience_bg.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.ocean-bg-bw::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75); /* Dark overlay */
+    z-index: 0;
+}
+
+.ocean-bg-bw > * {
+    position: relative;
+    z-index: 1;
+}
+
 .stat-icon {
     width: 42px;
     height: 42px;
