@@ -1924,6 +1924,11 @@ details[open].faq-item p {
         font-size: 3.5rem !important;
     }
 
+    .stat-box {
+        width: 100% !important;
+        flex: none !important;
+    }
+
     .footer-info {
         text-align: left;
     }
