@@ -2398,6 +2398,11 @@ details[open].faq-item p {
     background-repeat: no-repeat, no-repeat, repeat !important;
 }
 
+.projects-section .card-num,
+.projects-section .text-accent {
+    color: #4cc9f0 !important; /* Light blue highlight */
+}
+
 .projects-section .container {
     max-width: 1400px !important;
 }
