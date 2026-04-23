@@ -2406,16 +2406,16 @@ details[open].faq-item p {
     overflow: visible !important;
     position: relative;
     z-index: 1;
-    background-color: rgba(243, 244, 246, 0.8) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    /* Layer 1: Corner Glows for depth, Layer 2: Halftone Circle Pattern */
-    background-image: 
-        radial-gradient(circle at 10% 20%, rgba(76, 201, 240, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(76, 201, 240, 0.05) 0%, transparent 40%),
-        radial-gradient(rgba(76, 201, 240, 0.1) 2px, transparent 0) !important;
-    background-size: 100% 100%, 100% 100%, 32px 32px !important;
-    background-repeat: no-repeat, no-repeat, repeat !important;
+}
+
+.ocean-bg-bw .section-title,
+.ocean-bg-bw .section-label,
+.ocean-bg-bw .trust-title {
+    color: var(--color-white) !important;
+}
+
+.ocean-bg-bw .trust-logos img {
+    filter: grayscale(1) brightness(2) !important; /* Make logos white/bright */
 }
 
 .projects-section .card-num,
@@ -2470,9 +2470,6 @@ details[open].faq-item p {
 
 /* --- Together Section --- */
 .together-section {
-    background-color: rgba(255, 255, 255, 0.85) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     min-height: auto !important;
     display: flex;
     align-items: center;
