@@ -2455,15 +2455,20 @@ details[open].faq-item p {
         display: flex !important;
         flex-direction: column !important;
         gap: 30px !important;
-        align-items: center !important;
-        text-align: center !important;
+        align-items: flex-start !important; /* Left aligned for better readability */
+        text-align: left !important;
+    }
+    .director-layout .section-label {
+        order: -2 !important;
     }
     .director-img {
         order: -1 !important;
         margin-bottom: 20px !important;
+        width: 100% !important;
     }
     .director-text {
-        align-items: center !important;
+        align-items: flex-start !important;
+        text-align: left !important;
     }
 }
 
