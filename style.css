@@ -1143,6 +1143,72 @@ details[open].faq-item p {
     transform: translateY(-5px);
 }
 
+/* Ocean Texture Backgrounds */
+.ocean-bg-texture {
+    background-image: url('images/ocean_texture.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.ocean-bg-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(245, 247, 250, 0.9); /* Light overlay */
+    z-index: 0;
+}
+
+.ocean-bg-texture-dark {
+    background-image: url('images/ocean_texture.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.ocean-bg-texture-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(5, 7, 15, 0.88); /* Slightly darker for readability */
+    z-index: 0;
+}
+
+.ocean-bg-texture > *, 
+.ocean-bg-texture-dark > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure visibility in dark textured sections */
+.ocean-bg-texture-dark .section-title,
+.ocean-bg-texture-dark .footer-bottom-info a,
+.ocean-bg-texture-dark .footer-contact-group p,
+.ocean-bg-texture-dark .footer-contact-group span {
+    color: var(--color-white) !important;
+}
+
+.ocean-bg-texture-dark input, 
+.ocean-bg-texture-dark textarea {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: var(--color-white) !important;
+    backdrop-filter: blur(5px);
+}
+
+.ocean-bg-texture-dark input::placeholder, 
+.ocean-bg-texture-dark textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
 .stat-icon {
     width: 42px;
     height: 42px;
