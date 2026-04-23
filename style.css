@@ -1066,14 +1066,14 @@ details[open].faq-item p {
 .legend-layout {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
+    align-items: flex-start !important;
+    text-align: left !important;
 }
 
 .legend-content-wrapper {
     width: 100%;
-    margin-bottom: 60px !important;
-    padding-top: 40px !important;
+    margin-bottom: 30px;
+    padding-top: 20px;
 }
 
 .legend-text-grid {
@@ -1155,11 +1155,13 @@ details[open].faq-item p {
 
 .stats-strip {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr) !important;
     gap: 20px !important;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    grid-column: 1 / -1;
     width: 100%;
-    max-width: 800px;
-    margin: 40px auto 0;
 }
 
 .stat-box {
@@ -1168,8 +1170,7 @@ details[open].faq-item p {
     align-items: center !important;
     justify-content: center !important;
     width: 100% !important;
-    aspect-ratio: 1 / 1 !important;
-    padding: 20px !important;
+    padding: 40px 10px !important;
     transition: all 0.3s ease;
 }
 
@@ -2103,8 +2104,7 @@ details[open].faq-item p {
 
     .stat-box {
         width: 100% !important;
-        aspect-ratio: 1 / 1 !important;
-        padding: 10px !important;
+        padding: 30px 10px !important;
     }
 
     .footer-info {
