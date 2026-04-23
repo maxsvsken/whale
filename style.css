@@ -2487,7 +2487,7 @@ details[open].faq-item p {
 
 .ocean-bg-bw .trust-logos img {
     filter: grayscale(1) invert(1) brightness(3) !important; 
-    max-height: 40px;
+    max-height: 50px;
     width: auto;
     transition: all 0.3s ease;
 }
