@@ -1066,8 +1066,55 @@ details[open].faq-item p {
 .legend-layout {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+.legend-content-wrapper {
+    width: 100%;
+    margin-bottom: 60px;
+    padding-top: 40px;
+}
+
+.legend-content-wrapper .section-title {
+    color: var(--color-white) !important;
+    font-size: 3.2rem;
+    margin-bottom: 50px;
+    line-height: 1.1;
+}
+
+.legend-text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.legend-text-grid p {
+    color: var(--color-white);
+    line-height: 1.6;
+}
+
+.lead-text {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.sub-text {
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+@media (max-width: 1100px) {
+    .legend-text-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .legend-content-wrapper .section-title {
+        font-size: 2.4rem;
+    }
+    .lead-text {
+        font-size: 1.25rem;
+    }
 }
 
 .director-layout {
