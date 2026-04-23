@@ -1289,8 +1289,12 @@ details[open].faq-item p {
     font-size: 5.5rem;
     font-family: var(--font-heading);
     line-height: 1;
-    color: var(--color-accent) !important;
+    color: var(--color-white) !important;
     font-weight: 500;
+}
+
+.liquid-glass .stat-icon {
+    color: var(--color-white) !important;
 }
 
 .stat-name {
