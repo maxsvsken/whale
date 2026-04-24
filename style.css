@@ -1342,11 +1342,16 @@ details[open].faq-item p {
 .expertise-layout {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
-    align-items: flex-start;
+    gap: 80px;
+    align-items: stretch;
+}
+
+.expertise-img {
+    height: 100%;
 }
 
 .expertise-img .art-frame {
+    height: 100%;
     padding: 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.05);
@@ -1354,23 +1359,41 @@ details[open].faq-item p {
 
 .expertise-img img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
     filter: brightness(0.9);
 }
 
+.expertise-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.expertise-accordion {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
 .expertise-item {
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    padding: 25px;
+    padding: 30px 25px;
     margin-bottom: -1px;
     background: rgba(255, 255, 255, 0.03);
     transition: background 0.3s ease;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .expertise-item:hover {
     background: rgba(255, 255, 255, 0.07);
 }
 
+/* Ensure summary stays at top when flexed */
 .expertise-item summary {
     display: flex;
     align-items: center;
