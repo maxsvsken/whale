@@ -1445,6 +1445,11 @@ details[open] .exp-icon {
 
     .expertise-img .art-frame {
         height: 100%;
+        background: var(--color-white) !important;
+        padding: 12px !important;
+        border: 2px solid var(--color-black) !important;
+        box-shadow: 15px 15px 0px var(--color-black);
+        display: flex;
     }
 
     .expertise-img img {
