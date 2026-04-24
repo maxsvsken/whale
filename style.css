@@ -2590,8 +2590,8 @@ details[open] .exp-icon {
         width: 100% !important;
     }
     .director-text {
-        align-items: flex-start !important;
-        text-align: left !important;
+        align-items: center !important;
+        text-align: center !important;
     }
 }
 
