@@ -551,21 +551,9 @@ body {
     padding: 30px;
 }
 
-.expertise-item {
-    border: 1px solid var(--color-black) !important;
-    padding: 25px;
-    margin-bottom: -1px; /* Grid overlap */
-}
 
-.exp-num {
-    color: var(--color-accent);
-    font-weight: 800;
-}
 
-.exp-title {
-    font-weight: 700;
-    text-transform: uppercase;
-}
+
 
 .bg-accent {
     background-color: var(--color-accent);
@@ -1350,7 +1338,96 @@ details[open].faq-item p {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Today Section Layout */
+/* Today Section (Expertise) Layout */
+.expertise-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.expertise-img .art-frame {
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.expertise-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.9);
+}
+
+.expertise-item {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 25px;
+    margin-bottom: -1px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: background 0.3s ease;
+}
+
+.expertise-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.expertise-item summary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    list-style: none;
+    outline: none;
+}
+
+.expertise-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.exp-num {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--color-accent);
+}
+
+.exp-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex: 1;
+}
+
+.exp-icon {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    transition: transform 0.3s ease;
+}
+
+details[open] .exp-icon {
+    transform: rotate(45deg);
+}
+
+.exp-content {
+    padding-top: 20px;
+    padding-left: 45px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+@media (max-width: 1100px) {
+    .expertise-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .expertise-img {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* Projects Cards Grid */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
