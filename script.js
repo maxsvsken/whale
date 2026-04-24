@@ -79,9 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tl.from(".hero-image-wrapper", { y: 100, rotateX: 15, autoAlpha: 0, scale: 0.8, duration: 1.5 })
             .from(".hero-image", { scale: 1.4, duration: 1.5 }, "<")
-            .from(".title-word", { yPercent: 120, rotateX: -80, autoAlpha: 0, duration: 1.2, stagger: 0.15, ease: "back.out(1.2)" }, "-=0.8")
-            .from(".char", { autoAlpha: 0, y: 10, duration: 0.1, stagger: 0.01 }, "-=0.4")
-            .from(".hero-btn", { y: 40, autoAlpha: 0, duration: 1.2, ease: "back.out(1.5)" }, "-=1.0");
+            .from(".hero-btn", { y: 40, autoAlpha: 0, duration: 1.2, ease: "back.out(1.5)" }, "-=0.2");
     }
 
     initHeroAnimation();

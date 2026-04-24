@@ -932,8 +932,6 @@ body {
 
 /* Hero Legend Animation States */
 .hero-image-wrapper,
-.title-word,
-.char,
 .hero-btn {
     visibility: hidden;
     opacity: 0;
