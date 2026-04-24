@@ -1433,11 +1433,37 @@ details[open] .exp-icon {
     .expertise-layout {
         grid-template-columns: 1fr;
         gap: 40px;
+        align-items: flex-start;
     }
     
     .expertise-img {
-        max-width: 600px;
+        width: 100%;
+        max-width: 500px;
         margin: 0 auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .expertise-img .art-frame {
+        height: 100%;
+    }
+
+    .expertise-img img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 768px) {
+    .expertise-img {
+        max-width: 100%;
+    }
+    
+    .expertise-item {
+        padding: 20px 15px;
+    }
+    
+    .exp-content {
+        padding-left: 35px;
     }
 }
 
